@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.env.*
+/.svelte-kit
+/build
+/dist
+node_modules
+package-lock.json
+Thumbs.db
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+yarn.lock
