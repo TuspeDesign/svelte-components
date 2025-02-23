@@ -9,15 +9,19 @@
     disabled?: boolean
     id?: string
     outerClass?: string
+    required?: boolean
     value?: string
   }
 
-  let {children, onchange, checked = $bindable(false), disabled, id, outerClass, value}: Props = $props()
+  let {children, onchange, checked = $bindable(false), disabled, id, outerClass, required, value}: Props = $props()
 </script>
 
 <label class={outerClass}>
-  <input bind:checked disabled={disabled || $loading} {id} {onchange} type="checkbox" {value} />
-  <span>{@render children?.()}</span>
+  <input bind:checked disabled={disabled || $loading} {id} {onchange} {required} type="checkbox" {value} />
+  <span>
+    {@render children?.()}
+    {#if required}<sup>*</sup>{/if}
+  </span>
 </label>
 
 <style scoped>
@@ -48,5 +52,9 @@
     gap: 1rem;
     grid-template-columns: 20px 1fr;
     line-height: 1.25;
+  }
+
+  sup {
+    color: darkred;
   }
 </style>
