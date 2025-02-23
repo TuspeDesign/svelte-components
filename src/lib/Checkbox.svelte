@@ -25,7 +25,6 @@
     accent-color: var(--color-primary);
     border: 1px solid var(--color-border);
     height: 20px;
-    margin-right: 10px;
     outline: none;
     vertical-align: middle;
     width: 20px;
@@ -42,14 +41,12 @@
   }
 
   label {
-    display: flex;
     align-items: center;
     cursor: pointer;
-    line-height: 1.25;
+    display: grid;
     font-size: 1rem;
-  }
-
-  span {
-    margin-top: 1px;
+    gap: 1rem;
+    grid-template-columns: 20px 1fr;
+    line-height: 1.25;
   }
 </style>
