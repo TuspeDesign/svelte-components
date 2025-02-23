@@ -202,15 +202,53 @@ A simple `Modal` component that displays a popup with customizable content.
   }
 ```
 
-## Prevent Default
+## Functions
 
-Previously, Svelte handled form submission without reloading the page. However, the preventDefault function is no longer supported by Svelte v5, so this function handles form submission without loading the page.
+### calculatePreTax
 
-```JavaScript
-export const preventDefault = (fn: Function) => {
-  return function (this: any, event: any) {
-    event.preventDefault()
-    fn.call(this, event)
-  }
-}
-```
+Computes the pre-tax amount by subtracting the tax from the total, using the specified VAT percentage.
+
+### calculateTax
+
+Calculates the tax portion of a total amount based on a given VAT percentage (default: 25.5%), ensuring precision.
+
+### fixNumber
+
+Converts a number or string to a rounded number with two decimal places, ensuring precision.
+
+### formatPrice
+
+Formats a number or string as a price with two decimal places, spaces as thousand separators, optional comma as a decimal separator, and an appended currency symbol (default: €).
+
+### handleCache
+
+Retrieves or stores values in the cache; keys are slugified, and values are updated or returned if they exist. This ensures that `+page.ts` and other pages only retrieve data from the backend once and that the WordPress frontend uses the product list data on the product page without retrieving the same page again.
+
+## preventDefault
+
+Previously, Svelte handled form submission without reloading the page. However, the `preventDefault` function is no longer supported by Svelte v5, so this function handles form submission without loading the page.
+
+### slugify
+
+Converts a string to a URL-friendly format by replacing special characters, removing quotes, and replacing non-alphanumeric characters with hyphens.
+
+
+### summary
+
+This function removes any HTML tags from a given string, then trims it to a maximum of 160 characters. If possible, it truncates at the last occurrence of a sentence-ending character (".", "!", "?"); otherwise, it appends "..." to indicate truncation.
+
+### validateArray
+
+Checks if a value is an array and contains more than a specified number of items (default: 0).
+
+### validateEmail
+
+Validates if a string is a properly formatted email address.
+
+### validateSlug
+
+Checks if a given string is a valid slug by ensuring it matches its slugified version.
+
+### validateString
+
+Ensures a string contains only allowed characters (letters, numbers, spaces, and certain symbols).

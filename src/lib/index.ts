@@ -136,10 +136,6 @@ export const handleCache = (key: string, value: any = undefined) => {
 
 /**
  * PREVENT DEFAULT
- * Previously, Svelte handled form submission without reloading
- * the page. However, the preventDefault function is no longer
- * supported by Svelte v5, so this function handles form
- * submission without loading the page.
  */
 
 export const preventDefault = (fn: Function) => {
@@ -147,4 +143,44 @@ export const preventDefault = (fn: Function) => {
     event.preventDefault()
     fn.call(this, event)
   }
+}
+
+/**
+ * SUMMARY
+ */
+
+export const summary = (text: any, num: number = 160): string => {
+  if (!text || typeof text !== 'string') {
+    return ''
+  }
+
+  // Remove HTML tags
+  let sum = text.replace(/<[^>]*>/g, '').trim()
+
+  // If the summary is within the limit, return it directly.
+  if (sum.length <= num) {
+    return sum
+  }
+
+  // Truncate the summary to the specified number of characters.
+  let truncatedSummary = sum.substring(0, num)
+
+  // Define end characters to find the last occurrence for truncation.
+  const endChars = ['.', '!', '?']
+
+  // Variable to track if an end character is found.
+  let foundEndChar = false
+
+  // Find the last occurrence of any end character within the truncated summary.
+  for (const char of endChars) {
+    const lastIndex = truncatedSummary.lastIndexOf(char)
+    if (lastIndex !== -1) {
+      truncatedSummary = truncatedSummary.substring(0, lastIndex + 1)
+      foundEndChar = true
+      break // Exit loop after finding the first end character.
+    }
+  }
+
+  // Return the summary. Append ellipsis only if no end character was found.
+  return truncatedSummary.trim() + (foundEndChar ? '' : '...')
 }
