@@ -224,7 +224,7 @@ Formats a number or string as a price with two decimal places, spaces as thousan
 
 Retrieves or stores values in the cache; keys are slugified, and values are updated or returned if they exist. This ensures that `+page.ts` and other pages only retrieve data from the backend once and that the WordPress frontend uses the product list data on the product page without retrieving the same page again.
 
-## preventDefault
+### preventDefault
 
 Previously, Svelte handled form submission without reloading the page. However, the `preventDefault` function is no longer supported by Svelte v5, so this function handles form submission without loading the page.
 

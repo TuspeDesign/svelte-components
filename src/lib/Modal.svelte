@@ -51,17 +51,15 @@
     background-color: #fff;
     border-radius: 1rem;
     border: 2px solid var(--color-primary);
-    box-shadow: var(--shadow-md);
     margin-left: auto;
     margin-right: auto;
-    max-height: 85vh;
     max-width: 95vw;
     overflow: hidden;
     overscroll-behavior: contain;
     position: relative;
   }
   #modal-body {
-    max-height: 45vh;
+    max-height: 70vh;
     overflow-x: hidden;
     overflow-y: auto;
     padding: 1rem;

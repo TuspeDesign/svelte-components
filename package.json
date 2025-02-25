@@ -1,6 +1,6 @@
 {
   "name": "@tuspe/components",
-  "version": "1.7.3",
+  "version": "1.7.5",
   "description": "A reusable SvelteKit component library for form elements, breadcrumbs, prices and images.",
   "keywords": [
     "svelteKit",
@@ -14,7 +14,8 @@
     "input",
     "checkbox",
     "select",
-    "preventDefault"
+    "preventDefault",
+    "validation"
   ],
   "homepage": "https://github.com/TuspeDesign/svelte-components",
   "license": "MIT",
