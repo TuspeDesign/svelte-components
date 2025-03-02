@@ -7,7 +7,6 @@
     ariaExpanded?: boolean | undefined
     ariaLabel?: string
     ariaPopup?: 'dialog' | 'menu' | 'listbox' | undefined
-    ball?: boolean
     borderColor?: 'content' | 'default' | 'primary'
     borderSize?: 0 | 1 | 2
     children: Snippet
@@ -29,6 +28,7 @@
     onclick?: any
     preload?: 'hover' | 'tap'
     role?: string
+    rounded?: 'full' | 'lg' | 'none' | 'sm'
     target?: '_blank' | '_top' | undefined
     type?: 'submit'
     uppercase?: boolean
@@ -40,7 +40,6 @@
     ariaExpanded,
     ariaLabel,
     ariaPopup,
-    ball,
     borderColor = 'content',
     borderSize = 0,
     children,
@@ -62,6 +61,7 @@
     onclick = undefined,
     preload,
     role,
+    rounded = 'sm',
     target,
     type,
     uppercase = true,
@@ -74,9 +74,6 @@
     classes += ' control'
   } else {
     classes += ' bg-' + colorBg
-  }
-  if (ball) {
-    classes += ' radius-full'
   }
   if (borderSize) {
     classes += ' border-solid border-' + borderSize + ' border-' + borderColor
@@ -107,6 +104,9 @@
   }
   if (noPadding) {
     classes += ' no-padding'
+  }
+  if (rounded) {
+    classes += ' radius-' + rounded
   }
   if (uppercase) {
     classes += ' uppercase'
@@ -201,9 +201,6 @@
     padding-left: 2rem;
     padding-right: 2rem;
   }
-  .btn:not(.radius-full) {
-    border-radius: 0.375rem;
-  }
   .btn:disabled {
     cursor: not-allowed;
     opacity: 0.6;
@@ -259,6 +256,12 @@
   .radius-full {
     border-radius: 50%;
     overflow: hidden;
+  }
+  .radius-lg {
+    border-radius: 25px;
+  }
+  .radius-sm {
+    border-radius: 0.375rem;
   }
   .w-full {
     width: 100%;

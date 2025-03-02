@@ -2,6 +2,17 @@
 
 [Tuspe Design](https://tuspe.com/en) builds websites and online stores for small and large businesses. This component library includes essential elements for forms, modals, breadcrumbs, and images. It also offers utility functions for price display, VAT calculations, and validations for tables and strings.
 
+## Example of required style specifications
+
+```CSS
+  :root {
+    --color-border: #bbb;
+    --color-content: #362e26;
+    --color-primary: #20a3cb;
+    --color-secondary: #263927;
+  }
+```
+
 ## Breadcrumbs
 
 A breadcrumb navigation provide links back to previous pages, and shows the user's current location in a website. The component complies with [Google standards](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb).
@@ -31,7 +42,6 @@ Easily replace most buttons in your project with this versatile button component
     ariaExpanded?: boolean | undefined
     ariaLabel?: string
     ariaPopup?: 'dialog' | 'menu' | 'listbox' | undefined
-    ball?: boolean
     borderColor?: 'content' | 'default' | 'primary'
     borderSize?: 0 | 1 | 2
     children: Snippet
@@ -53,6 +63,7 @@ Easily replace most buttons in your project with this versatile button component
     onclick?: any
     preload?: 'hover' | 'tap'
     role?: string
+    rounded?: 'full' | 'lg' | 'none' | 'sm'
     target?: '_blank' | '_top' | undefined
     type?: 'submit'
     uppercase?: boolean
@@ -79,8 +90,11 @@ Close button for modals and other dismissible elements.
 
 ```TypeScript
   interface Props {
-    onclick: () => any
+    ariaLabel?: string
     color?: string
+    hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
+    hoverText?: 'black' | 'primary' | 'secondary' | 'white'
+    onclick: () => any
   }
 ```
 
@@ -113,6 +127,7 @@ A versatile image component supporting various aspect ratios and object fit opti
   }
 
   interface Props {
+    ariaHidden?: boolean
     aspect?: '3:4' | '4:3' | 'square' | 'video'
     ball?: boolean
     border?: boolean
@@ -195,10 +210,15 @@ A simple `Modal` component that displays a popup with customizable content.
 ```TypeScript
   interface Props {
     children: Snippet
+    buttonAriaLabel?: string
+    colorButton?: string
+    colorBg?: string
+    headerClass?: string
     innerClass?: string
     open?: boolean
     outerClass?: string
     title?: string
+    titleClass?: string
   }
 ```
 
@@ -224,7 +244,7 @@ Formats a number or string as a price with two decimal places, spaces as thousan
 
 Retrieves or stores values in the cache; keys are slugified, and values are updated or returned if they exist. This ensures that `+page.ts` and other pages only retrieve data from the backend once and that the WordPress frontend uses the product list data on the product page without retrieving the same page again.
 
-## preventDefault
+### preventDefault
 
 Previously, Svelte handled form submission without reloading the page. However, the `preventDefault` function is no longer supported by Svelte v5, so this function handles form submission without loading the page.
 

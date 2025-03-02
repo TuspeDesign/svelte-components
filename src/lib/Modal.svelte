@@ -3,24 +3,39 @@
   import ButtonClose from '$lib/ButtonClose.svelte'
   interface Props {
     children: Snippet
+    buttonAriaLabel?: string
+    colorButton?: string
+    colorBg?: string
+    headerClass?: string
     innerClass?: string
     open?: boolean
     outerClass?: string
     title?: string
+    titleClass?: string
   }
-  let {children, innerClass, open = $bindable(), outerClass, title}: Props = $props()
+  let {
+    children,
+    buttonAriaLabel,
+    colorButton = 'white',
+    headerClass = 'bg-primary text-white',
+    innerClass,
+    open = $bindable(),
+    outerClass = 'bg-white text-content',
+    title,
+    titleClass = 'text-white'
+  }: Props = $props()
   const handleClose = () => {
     open = false
   }
 </script>
 
 <div id="modal" class:hidden={!open}>
-  <div id="modal-content" class={outerClass}>
-    <header>
+  <div id="modal-content" class={outerClass} aria-live="polite">
+    <header class={headerClass}>
       {#if title}
-        <h2>{title}</h2>
+        <h2 class={titleClass}>{title}</h2>
       {/if}
-      <ButtonClose color="black" onclick={handleClose} />
+      <ButtonClose ariaLabel={buttonAriaLabel} onclick={handleClose} color={colorButton} hover="transparent" />
     </header>
     <div id="modal-body" class={innerClass}>
       {@render children?.()}
@@ -48,20 +63,19 @@
     visibility: hidden;
   }
   #modal-content {
-    background-color: #fff;
     border-radius: 1rem;
     border: 2px solid var(--color-primary);
-    box-shadow: var(--shadow-md);
+    color: var(--color-content);
     margin-left: auto;
     margin-right: auto;
-    max-height: 85vh;
     max-width: 95vw;
     overflow: hidden;
     overscroll-behavior: contain;
     position: relative;
   }
   #modal-body {
-    max-height: 45vh;
+    max-height: 70vh;
+    max-width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     padding: 1rem;
@@ -71,8 +85,21 @@
     padding: 1rem;
   }
   h2 {
-    font-size: 1.6rem;
-    line-height: 1;
+    font-size: clamp(1.2rem, 1.6rem, 6vw);
+    line-height: 1.25;
     margin: 0;
+    max-width: 90%;
+  }
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .bg-white {
+    background-color: #fff;
+  }
+  .text-content {
+    color: var(--color-content);
+  }
+  .text-white {
+    color: #fff;
   }
 </style>

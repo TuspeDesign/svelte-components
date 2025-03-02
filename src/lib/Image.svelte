@@ -2,6 +2,7 @@
   import type {ImageData} from '$lib'
 
   interface Props {
+    ariaHidden?: boolean
     aspect?: '3:4' | '4:3' | 'square' | 'video'
     ball?: boolean
     border?: boolean
@@ -13,7 +14,7 @@
     objectFit?: 'contain' | 'cover'
   }
 
-  let {aspect, ball = false, border, center = false, extraClasses, fullWidth, image, loading = 'lazy', objectFit}: Props = $props()
+  let {ariaHidden, aspect, ball = false, border, center = false, extraClasses, fullWidth, image, loading = 'lazy', objectFit}: Props = $props()
 
   let classes = $state('')
   if (aspect) {
@@ -40,7 +41,16 @@
 </script>
 
 {#if image?.src}
-  <img alt={image.alt} class={classes} decoding="async" height={image.height} {loading} src={image.src} width={image.width} />
+  <img
+    {loading}
+    alt={image.alt}
+    aria-hidden={ariaHidden}
+    class={classes}
+    decoding="async"
+    height={image.height}
+    src={image.src}
+    width={image.width}
+  />
 {/if}
 
 <style scoped>
