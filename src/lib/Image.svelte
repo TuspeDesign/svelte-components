@@ -81,6 +81,7 @@
     max-height: 100%;
   }
   .cover {
+    height: 100%;
     object-fit: cover;
     object-position: top;
   }
