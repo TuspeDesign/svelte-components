@@ -132,6 +132,7 @@ A versatile image component supporting various aspect ratios and object fit opti
     ball?: boolean
     border?: boolean
     center?: boolean
+    display?: 'block' | 'inline-block'
     extraClasses?: string
     fullWidth?: boolean
     image: ImageData

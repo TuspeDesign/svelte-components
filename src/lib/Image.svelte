@@ -7,6 +7,7 @@
     ball?: boolean
     border?: boolean
     center?: boolean
+    display?: 'block' | 'inline-block'
     extraClasses?: string
     fullWidth?: boolean
     image: ImageData
@@ -14,11 +15,11 @@
     objectFit?: 'contain' | 'cover'
   }
 
-  let {ariaHidden, aspect, ball = false, border, center = false, extraClasses, fullWidth, image, loading = 'lazy', objectFit}: Props = $props()
+  let {ariaHidden, aspect, ball = false, border, center = false, display = 'inline-block' extraClasses, fullWidth, image, loading = 'lazy', objectFit}: Props = $props()
 
-  let classes = $state('')
+  let classes = $state(display)
   if (aspect) {
-    classes += `aspect-${aspect}`
+    classes += ` aspect-${aspect}`
   }
   if (objectFit) {
     classes += ' ' + objectFit
@@ -54,9 +55,6 @@
 {/if}
 
 <style scoped>
-  img {
-    display: inline-block;
-  }
   img:not(.cover) {
     height: auto;
     max-width: 100%;
@@ -73,6 +71,9 @@
   .aspect-video {
     aspect-ratio: 16 / 9;
   }
+  .block {
+    display: block;
+  }
   .border-full {
     border: 1px solid var(--color-content);
   }
@@ -88,6 +89,9 @@
   .cover,
   .full:not(.contain) {
     width: 100%;
+  }
+  .inline-block {
+    display: inline-block;
   }
   .mx-auto {
     margin-left: auto;
