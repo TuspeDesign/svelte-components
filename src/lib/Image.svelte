@@ -15,7 +15,19 @@
     objectFit?: 'contain' | 'cover'
   }
 
-  let {ariaHidden, aspect, ball = false, border, center = false, display = 'inline-block' extraClasses, fullWidth, image, loading = 'lazy', objectFit}: Props = $props()
+  let {
+    ariaHidden,
+    aspect,
+    ball = false,
+    border,
+    center = false,
+    display = 'inline-block',
+    extraClasses,
+    fullWidth,
+    image,
+    loading = 'lazy',
+    objectFit
+  }: Props = $props()
 
   let classes = $state(display)
   if (aspect) {

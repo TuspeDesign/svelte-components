@@ -118,18 +118,38 @@ export const validateArray = (value: any, items = 0): boolean => {
  * CACHE
  */
 
-export const cacheValues = writable<{[key: string]: any}>({})
-export const handleCache = (key: string, value: any = undefined) => {
+interface Stored {
+  date: number
+  value: any
+}
+
+export const cacheValues = writable<{[key: string]: Stored}>({})
+
+export const handleCache = (key: string, value: any = undefined, ttl: number = 60) => {
   if (!key) {
     return null
   }
-  const newKey = slugify(key)
-  const cache = get(cacheValues)
-  if (value) {
-    const newValues = cache ? {...cache, [newKey]: value} : {[newKey]: value}
-    cacheValues.set({...newValues})
+
+  const cache = get(cacheValues),
+    newKey = slugify(key),
+    now = Date.now(),
+    ttlMs = ttl * 1000
+
+  if (value !== undefined) {
+    const newValues = {
+      ...cache,
+      [newKey]: {date: now, value}
+    }
+    cacheValues.set(newValues)
   } else if (cache?.[newKey]) {
-    return cache[newKey]
+    const cachedItem = cache[newKey]
+    if (now - cachedItem.date < ttlMs) {
+      return cachedItem.value
+    } else {
+      // Remove expired cache entry
+      const {[newKey]: _, ...rest} = cache
+      cacheValues.set(rest)
+    }
   }
   return null
 }
