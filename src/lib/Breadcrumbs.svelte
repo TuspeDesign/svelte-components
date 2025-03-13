@@ -1,14 +1,18 @@
 <script lang="ts">
   import {page} from '$app/state'
-  import type {Breadcrumb} from '$lib'
+  import {onMount} from 'svelte'
+  import {validateArray, type Breadcrumb} from '$lib'
 
   interface Props {
     homeName?: string
     homeSlug?: string
+    outerClass?: string
     values: Breadcrumb[]
   }
 
-  let {homeName = 'Etusivu', homeSlug = '', values}: Props = $props()
+  let {homeName = 'Etusivu', homeSlug = '', outerClass, values}: Props = $props(),
+    classes = $state('truncate')
+
   const origin = page.url.origin + '/'
 
   let originWithSlug = $state(origin + homeSlug),
@@ -35,6 +39,10 @@
         ? `<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":${JSON.stringify(listItems)}}${'<'}/script>`
         : ''
     )
+
+  onMount(() => {
+    classes += outerClass ? ` ${outerClass}` : ' border-bottom'
+  })
 </script>
 
 <svelte:head>
@@ -43,8 +51,8 @@
   {/if}
 </svelte:head>
 
-{#if Array.isArray(listItems) && listItems.length > 0}
-  <div class="border-bottom truncate">
+{#if validateArray(listItems)}
+  <div class={classes}>
     <ol id="breadcrumb" class="max-w-screen-xl mx-auto my-0 px-4 py-2" vocab="https://schema.org/" typeof="BreadcrumbList">
       {#each listItems as page}
         <li property="itemListElement" typeof="ListItem">

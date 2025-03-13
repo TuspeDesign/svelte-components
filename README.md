@@ -175,11 +175,12 @@ A customizable `Select` component for choosing from a list of options. Supports 
   }
 
   interface Props {
-    onchange?: () => void
     disabled?: boolean
-    outerClass?: string
     id?: string
+    innerClass?: string
     label: string
+    onchange?: () => void
+    outerClass?: string
     placeholder?: string
     required?: boolean
     value: string | number

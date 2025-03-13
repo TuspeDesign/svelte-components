@@ -2,24 +2,42 @@
   import {loading, type SelectItem} from '$lib'
 
   interface Props {
-    onchange?: () => void
+    colorBg?: string
     disabled?: boolean
-    outerClass?: string
     id?: string
+    innerClass?: string
     label: string
+    onchange?: () => void
+    outerClass?: string
     placeholder?: string
     required?: boolean
     value: string | number
     values: SelectItem[]
   }
 
-  let {onchange, disabled, outerClass, id, label, placeholder, required = false, value = $bindable(), values}: Props = $props()
+  let {
+      colorBg = 'bg-transparent',
+      disabled,
+      id,
+      innerClass,
+      label,
+      onchange,
+      outerClass,
+      placeholder,
+      required = false,
+      value = $bindable(),
+      values
+    }: Props = $props(),
+    classes = $state(colorBg)
+  if (innerClass) {
+    classes += ' ' + innerClass
+  }
 </script>
 
 <label class={outerClass}>
   {label}
   {#if required}<sup>*</sup>{/if}
-  <select bind:value {onchange} disabled={disabled || $loading} {id} {placeholder} {required}>
+  <select bind:value {onchange} class={classes} disabled={disabled || $loading} {id} {placeholder} {required}>
     {#each values as item}
       <option value={item.value}>{item.name}</option>
     {/each}
@@ -28,7 +46,6 @@
 
 <style scoped>
   select {
-    background-color: transparent;
     border-radius: 0.375rem;
     border: 1px solid var(--color-border);
     color: var(--color-content);
@@ -37,6 +54,10 @@
     margin-top: 0.25rem;
     padding: 0 0.5rem;
     width: 100%;
+  }
+
+  select.bg-transparent {
+    background-color: transparent;
   }
 
   select:disabled {
