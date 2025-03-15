@@ -6,18 +6,19 @@
   interface Props {
     homeName?: string
     homeSlug?: string
+    onlyMeta?: boolean
     outerClass?: string
     values: Breadcrumb[]
   }
 
-  let {homeName = 'Etusivu', homeSlug = '', outerClass, values}: Props = $props(),
+  let {homeName = 'Etusivu', homeSlug = '', onlyMeta = false, outerClass, values}: Props = $props(),
     classes = $state('truncate')
 
   const origin = page.url.origin + '/'
 
   let originWithSlug = $state(origin + homeSlug),
     listItems = $derived<Breadcrumb[]>(
-      Array.isArray(values) && values.length > 0
+      validateArray(values)
         ? [
             {
               '@type': 'ListItem',
@@ -51,7 +52,7 @@
   {/if}
 </svelte:head>
 
-{#if validateArray(listItems)}
+{#if !onlyMeta && validateArray(listItems)}
   <div class={classes}>
     <ol id="breadcrumb" class="max-w-screen-xl mx-auto my-0 px-4 py-2" vocab="https://schema.org/" typeof="BreadcrumbList">
       {#each listItems as page}

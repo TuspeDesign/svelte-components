@@ -28,6 +28,8 @@ A breadcrumb navigation provide links back to previous pages, and shows the user
   interface Props {
     homeName?: string
     homeSlug?: string
+    onlyMeta?: boolean
+    outerClass?: string
     values: Breadcrumb[]
   }
 ```
