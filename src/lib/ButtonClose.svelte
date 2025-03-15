@@ -6,14 +6,15 @@
     color?: string
     hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
     hoverText?: 'black' | 'primary' | 'secondary' | 'white'
+    id?: string
     onclick?: any
   }
 
-  let {ariaLabel, color = 'white', hover = 'transparent', onclick}: Props = $props()
+  let {ariaLabel, color = 'white', hover = 'transparent', id, onclick}: Props = $props()
 </script>
 
 <div class="close-button">
-  <Button {ariaLabel} {color} {onclick} control fill {hover}>
+  <Button {ariaLabel} {color} {onclick} control fill {hover} {id}>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" fill={color}>
       <title>Close</title>
       <path

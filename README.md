@@ -77,10 +77,11 @@ Arrow icons for navigation, such as image sliders or content transitions.
 
 ```TypeScript
   interface Props {
-    onclick?: () => any
     ariaLabel: string
     color?: string
     direction: 'left' | 'right'
+    id?: string
+    onclick?: () => any
   }
 ```
 
@@ -94,7 +95,8 @@ Close button for modals and other dismissible elements.
     color?: string
     hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
     hoverText?: 'black' | 'primary' | 'secondary' | 'white'
-    onclick: () => any
+    id?: string
+    onclick?: any
   }
 ```
 
@@ -104,12 +106,13 @@ A button for toggling the mobile menu, dynamically changing its icon based on th
 
 ```TypeScript
   interface Props {
-    onclick?: () => any
     ariaControls: string
     ariaLabel: string
     color?: 'black' | 'white'
     extraClass?: string
     hidden?: boolean
+    id?: string
+    onclick?: () => any
     open: boolean
   }
 ```

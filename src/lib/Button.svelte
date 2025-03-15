@@ -114,7 +114,7 @@
 </script>
 
 {#if href}
-  <a {href} class={classes} {target} data-sveltekit-preload-data={preload} rel="nofollow noopener">
+  <a class={classes} {href} {id} {target} data-sveltekit-preload-data={preload} rel="nofollow noopener">
     {@render children?.()}
   </a>
 {:else if control}

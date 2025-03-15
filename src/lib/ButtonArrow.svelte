@@ -1,15 +1,16 @@
 <script lang="ts">
   import Button from '$lib/Button.svelte'
   interface Props {
-    onclick?: () => any
     ariaLabel: string
     color?: string
     direction: 'left' | 'right'
+    id?: string
+    onclick?: () => any
   }
-  let {onclick, ariaLabel, color = 'black', direction}: Props = $props()
+  let {onclick, ariaLabel, color = 'black', direction, id}: Props = $props()
 </script>
 
-<Button {color} {onclick} {ariaLabel} control>
+<Button {ariaLabel} control {color} {id} {onclick}>
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
     <title>Arrow {direction}</title>
     {#if direction === 'left'}

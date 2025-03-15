@@ -1,22 +1,23 @@
 <script lang="ts">
   import Button from '$lib/Button.svelte'
   interface Props {
-    onclick?: () => any
     ariaControls: string
     ariaLabel: string
     color?: 'black' | 'white'
     extraClass?: string
     hidden?: boolean
+    id?: string
+    onclick?: () => any
     open: boolean
   }
-  let {ariaControls, ariaLabel, color = 'white', extraClass, hidden = false, open = $bindable()}: Props = $props()
+  let {ariaControls, ariaLabel, color = 'white', extraClass, hidden = false, id, open = $bindable()}: Props = $props()
   const handleOpen = () => {
     open = !open
   }
 </script>
 
 <div id="menu-button" class={extraClass} class:hidden>
-  <Button onclick={handleOpen} {ariaControls} ariaPopup="menu" ariaExpanded={open} {ariaLabel} {color} control fill>
+  <Button onclick={handleOpen} {ariaControls} ariaPopup="menu" ariaExpanded={open} {ariaLabel} {color} control fill {id}>
     <svg
       fill={color}
       clip-rule="evenodd"
