@@ -70,10 +70,12 @@ export const fixNumber = (value: number | string): number => {
 
 const defaultVatPercentage = 25.5
 
-export const calculateTax = (total: number, vatPercentage = defaultVatPercentage): number =>
-  fixNumber((vatPercentage * total) / (100 + vatPercentage))
+export const calculateTax = (value: number, vatPercentage = defaultVatPercentage): number =>
+  fixNumber((vatPercentage * value) / (100 + vatPercentage))
 
-export const calculatePreTax = (total: number, vatPercentage = defaultVatPercentage): number => fixNumber(total - calculateTax(total, vatPercentage))
+export const calculatePreTax = (value: number, vatPercentage = defaultVatPercentage): number => fixNumber(value - calculateTax(value, vatPercentage))
+
+export const calculateWithTax = (value: number, vatPercentage = defaultVatPercentage): number => fixNumber(value * (1 + vatPercentage / 100))
 
 /**
  * STRING VALIDATIONS

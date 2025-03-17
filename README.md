@@ -239,6 +239,10 @@ Computes the pre-tax amount by subtracting the tax from the total, using the spe
 
 Calculates the tax portion of a total amount based on a given VAT percentage (default: 25.5%), ensuring precision.
 
+### calculateWithTax
+
+Calculates the total price by adding VAT to a pre-tax amount, using the specified VAT percentage (default: 25.5%).
+
 ### fixNumber
 
 Converts a number or string to a rounded number with two decimal places, ensuring precision.

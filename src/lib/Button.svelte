@@ -6,7 +6,7 @@
     ariaControls?: string | undefined
     ariaExpanded?: boolean | undefined
     ariaLabel?: string
-    ariaPopup?: 'dialog' | 'menu' | 'listbox' | undefined
+    ariaPopup?: 'dialog' | 'listbox' | 'menu' | undefined
     borderColor?: 'content' | 'default' | 'primary'
     borderSize?: 0 | 1 | 2
     children: Snippet
