@@ -42,8 +42,8 @@ Easily replace most buttons in your project with this versatile button component
   interface Props {
     ariaControls?: string | undefined
     ariaExpanded?: boolean | undefined
-    ariaLabel?: string
-    ariaPopup?: 'dialog' | 'menu' | 'listbox' | undefined
+    ariaLabel?: string | undefined
+    ariaPopup?: 'dialog' | 'listbox' | 'menu' | undefined
     borderColor?: 'content' | 'default' | 'primary'
     borderSize?: 0 | 1 | 2
     children: Snippet
@@ -59,14 +59,16 @@ Easily replace most buttons in your project with this versatile button component
     hoverText?: 'black' | 'primary' | 'secondary' | 'white'
     href?: string | undefined
     id?: string
-    isActive?: boolean
+    noCenter?: boolean
     noHeight?: boolean
     noPadding?: boolean
     onclick?: any
     preload?: 'hover' | 'tap'
+    rel?: string
     role?: string
     rounded?: 'full' | 'lg' | 'none' | 'sm'
     target?: '_blank' | '_top' | undefined
+    title?: string | undefined
     type?: 'submit'
     uppercase?: boolean
     value?: string | number
@@ -109,13 +111,13 @@ A button for toggling the mobile menu, dynamically changing its icon based on th
 ```TypeScript
   interface Props {
     ariaControls: string
-    ariaLabel: string
     color?: 'black' | 'white'
     extraClass?: string
     hidden?: boolean
     id?: string
     onclick?: () => any
     open: boolean
+    title: string
   }
 ```
 

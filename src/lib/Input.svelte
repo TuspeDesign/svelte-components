@@ -38,8 +38,6 @@
     value = $bindable()
   }: Props = $props()
 
-  let isDisabled = $state(disabled || $loading)
-
   let classes = $state('')
   if (inputClass) {
     classes = inputClass
@@ -56,10 +54,18 @@
   {label}{#if required}<sup>*</sup>{/if}
 
   {#if type === 'textarea'}
-    <textarea bind:value class={classes} disabled={isDisabled} {id} maxlength={max ? Number(max) : undefined} {required} {placeholder} rows={4}
+    <textarea
+      bind:value
+      class={classes}
+      disabled={disabled || $loading}
+      {id}
+      maxlength={max ? Number(max) : undefined}
+      {required}
+      {placeholder}
+      rows={4}
     ></textarea>
   {:else if ['date', 'number'].includes(type)}
-    <input bind:value class={classes} disabled={isDisabled} lang="fi-FI" {max} {min} {onchange} {required} {step} {type} {placeholder} />
+    <input bind:value class={classes} disabled={disabled || $loading} lang="fi-FI" {max} {min} {onchange} {required} {step} {type} {placeholder} />
   {:else}
     <input
       bind:value
@@ -68,7 +74,7 @@
       {required}
       {type}
       class={classes}
-      disabled={isDisabled}
+      disabled={disabled || $loading}
       maxlength={max ? Number(max) : undefined}
       minlength={min ? Number(min) : undefined}
       onkeyup={onchange}

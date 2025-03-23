@@ -5,7 +5,7 @@
   interface Props {
     ariaControls?: string | undefined
     ariaExpanded?: boolean | undefined
-    ariaLabel?: string
+    ariaLabel?: string | undefined
     ariaPopup?: 'dialog' | 'listbox' | 'menu' | undefined
     borderColor?: 'content' | 'default' | 'primary'
     borderSize?: 0 | 1 | 2
@@ -22,14 +22,16 @@
     hoverText?: 'black' | 'primary' | 'secondary' | 'white'
     href?: string | undefined
     id?: string
-    isActive?: boolean
+    noCenter?: boolean
     noHeight?: boolean
     noPadding?: boolean
     onclick?: any
     preload?: 'hover' | 'tap'
+    rel?: string
     role?: string
     rounded?: 'full' | 'lg' | 'none' | 'sm'
     target?: '_blank' | '_top' | undefined
+    title?: string | undefined
     type?: 'submit'
     uppercase?: boolean
     value?: string | number
@@ -55,20 +57,22 @@
     hoverText = 'white',
     href,
     id,
-    isActive = false,
+    noCenter = false,
     noHeight,
     noPadding,
     onclick = undefined,
     preload,
+    rel = 'noopener noreferrer',
     role,
     rounded = 'sm',
     target,
+    title,
     type,
     uppercase = true,
     value
   }: Props = $props()
 
-  let classes = $state('btn text-' + color)
+  let classes = $state(`btn text-${color}`)
 
   if (control) {
     classes += ' control'
@@ -96,8 +100,8 @@
   if (hoverText) {
     classes += ' hover-text-' + hoverText
   }
-  if (isActive) {
-    classes += ' active'
+  if (!noCenter) {
+    classes += ' center'
   }
   if (noHeight) {
     classes += ' no-height'
@@ -114,7 +118,7 @@
 </script>
 
 {#if href}
-  <a class={classes} {href} {id} {target} data-sveltekit-preload-data={preload} rel="nofollow noopener">
+  <a class={classes} {href} {id} {target} data-sveltekit-preload-data={preload} {rel} {title}>
     {@render children?.()}
   </a>
 {:else if control}
@@ -122,6 +126,7 @@
     {id}
     {onclick}
     {role}
+    {title}
     {value}
     aria-controls={ariaControls}
     aria-expanded={ariaExpanded}
@@ -133,7 +138,7 @@
     {@render children?.()}
   </button>
 {:else}
-  <button {onclick} class={classes} {disabled} {type}>
+  <button {onclick} class={classes} {disabled} {title} {type}>
     {@render children?.()}
   </button>
 {/if}
@@ -183,6 +188,8 @@
   .btn {
     align-items: center;
     display: inline-flex;
+  }
+  .btn.center {
     justify-content: center;
   }
   .btn:not(.border-solid) {
