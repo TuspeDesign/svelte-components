@@ -105,7 +105,7 @@ export const validateEmail = (email: string): boolean => {
 }
 
 export const validateString = (value: string): boolean => {
-  return value && value.replace(/[^\w\s@!.:;äÄöÖåÅ/%&-]/gi, '') === value ? true : false
+  return value && value.replace(/[^\w\s@!.:;,?+äÄöÖåÅ/%&()|-]/gi, '') === value ? true : false
 }
 
 /**
