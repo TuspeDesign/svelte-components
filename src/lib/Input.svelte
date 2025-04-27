@@ -35,7 +35,8 @@
     required = false,
     step,
     type = 'text',
-    value = $bindable()
+    value = $bindable(),
+    ...props
   }: Props = $props()
 
   let classes = $state('')
@@ -63,9 +64,23 @@
       {required}
       {placeholder}
       rows={4}
+      {...props}
     ></textarea>
   {:else if ['date', 'number'].includes(type)}
-    <input bind:value class={classes} disabled={disabled || $loading} lang="fi-FI" {max} {min} {onchange} {required} {step} {type} {placeholder} />
+    <input
+      bind:value
+      class={classes}
+      disabled={disabled || $loading}
+      lang="fi-FI"
+      {max}
+      {min}
+      {onchange}
+      {required}
+      {step}
+      {type}
+      {placeholder}
+      {...props}
+    />
   {:else}
     <input
       bind:value
@@ -78,6 +93,7 @@
       maxlength={max ? Number(max) : undefined}
       minlength={min ? Number(min) : undefined}
       onkeyup={onchange}
+      {...props}
     />
     {#if type === 'search'}
       <svg

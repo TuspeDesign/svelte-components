@@ -1,6 +1,6 @@
 {
   "name": "@tuspe/components",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "description": "A reusable SvelteKit component library for form elements, breadcrumbs, prices and images.",
   "keywords": [
     "svelteKit",
@@ -61,22 +61,22 @@
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.8",
-    "@eslint/js": "^9.24.0",
+    "@eslint/js": "^9.25.1",
     "@sveltejs/adapter-static": "^3.0.8",
-    "@sveltejs/kit": "^2.20.5",
-    "@sveltejs/package": "^2.3.10",
+    "@sveltejs/kit": "^2.20.7",
+    "@sveltejs/package": "^2.3.11",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-svelte": "^3.5.1",
-    "eslint": "^9.24.0",
+    "eslint": "^9.25.1",
     "globals": "^16.0.0",
     "prettier-plugin-svelte": "^3.3.3",
     "prettier": "^3.5.3",
-    "publint": "^0.3.11",
-    "svelte-check": "^4.1.5",
-    "svelte": "^5.25.12",
-    "typescript-eslint": "^8.29.1",
+    "publint": "^0.3.12",
+    "svelte-check": "^4.1.6",
+    "svelte": "^5.28.2",
+    "typescript-eslint": "^8.31.0",
     "typescript": "^5.8.3",
-    "vite": "^6.2.6"
+    "vite": "^6.3.3"
   }
 }

@@ -7,17 +7,18 @@
     onchange?: () => void
     checked?: boolean
     disabled?: boolean
+    group?: boolean
     id?: string
     outerClass?: string
     required?: boolean
-    value?: string
+    value?: number | string
   }
 
-  let {children, onchange, checked = $bindable(false), disabled, id, outerClass, required, value}: Props = $props()
+  let {children, onchange, checked = $bindable(false), disabled, group = $bindable(), id, outerClass, required, value, ...props}: Props = $props()
 </script>
 
 <label class={outerClass}>
-  <input bind:checked disabled={disabled || $loading} {id} {onchange} {required} type="checkbox" {value} />
+  <input bind:checked disabled={disabled || $loading} {id} {onchange} {required} type="checkbox" {value} {...props} />
   <span>
     {@render children?.()}
     {#if required}<sup>*</sup>{/if}
