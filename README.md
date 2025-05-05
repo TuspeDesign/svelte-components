@@ -62,11 +62,13 @@ Easily replace most buttons in your project with this versatile button component
     noCenter?: boolean
     noHeight?: boolean
     noPadding?: boolean
+    noSpinner?: boolean
     onclick?: any
     preload?: 'hover' | 'tap'
     rel?: string
     role?: string
     rounded?: 'full' | 'lg' | 'none' | 'sm'
+    spinnerColor?: 'black' | 'white'
     target?: '_blank' | '_top' | undefined
     title?: string | undefined
     type?: 'submit'

@@ -1,11 +1,17 @@
 <script lang="ts">
-  import {Button, ButtonMenu, Checkbox, Input, Modal} from '$lib'
+  import {Button, ButtonMenu, Checkbox, Input, loading, Modal} from '$lib'
   let menuOpen = $state(false),
-    checkStatus = $state(false)
+    checkStatus = $state(false),
+    disabled = $state(false)
+  const changeStatus = () => {
+    disabled = !disabled
+    $loading = disabled ? 1 : 0
+  }
 </script>
 
 <Input label="Hakusana" type="search" />
-<Button ariaLabel="Tärkeää tietoa">Hae</Button>
+<Button ariaLabel="Tärkeää tietoa" bind:disabled>Status check</Button>
+<Button ariaLabel="Active / disable" onclick={changeStatus}>Change disabled status</Button>
 <Button control color="light" ariaLabel="Morjens">
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
     <path

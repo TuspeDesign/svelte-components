@@ -25,11 +25,13 @@
     noCenter?: boolean
     noHeight?: boolean
     noPadding?: boolean
+    noSpinner?: boolean
     onclick?: any
     preload?: 'hover' | 'tap'
     rel?: string
     role?: string
     rounded?: 'full' | 'lg' | 'none' | 'sm'
+    spinnerColor?: 'black' | 'white'
     target?: '_blank' | '_top' | undefined
     title?: string | undefined
     type?: 'submit'
@@ -60,11 +62,13 @@
     noCenter = false,
     noHeight,
     noPadding,
+    noSpinner,
     onclick = undefined,
     preload,
     rel = 'noopener noreferrer',
     role,
     rounded = 'sm',
+    spinnerColor = 'white',
     target,
     title,
     type,
@@ -139,11 +143,40 @@
   </button>
 {:else}
   <button {onclick} class={classes} {disabled} {title} {type}>
-    {@render children?.()}
+    {#if $loading && !noSpinner}
+      <span class={`loader ${spinnerColor}`}></span>
+    {:else}
+      {@render children?.()}
+    {/if}
   </button>
 {/if}
 
 <style scoped>
+  .loader {
+    animation: rotation 1s linear infinite;
+    border-radius: 50%;
+    border-right: 6px solid transparent;
+    border-top-style: solid;
+    border-top-width: 6px;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+  }
+  .loader.white {
+    border-top-color: #000;
+  }
+  .loader.white {
+    border-top-color: #fff;
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
   a {
     text-decoration: none;
   }
