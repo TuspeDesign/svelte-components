@@ -137,7 +137,7 @@
     aria-haspopup={ariaPopup}
     aria-label={ariaLabel}
     class={classes}
-    disabled={disabled || $loading}
+    {disabled}
   >
     {@render children?.()}
   </button>
