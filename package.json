@@ -1,6 +1,6 @@
 {
   "name": "@tuspe/components",
-  "version": "1.8.8",
+  "version": "1.8.14",
   "description": "A reusable SvelteKit component library for form elements, breadcrumbs, prices and images.",
   "keywords": [
     "svelteKit",

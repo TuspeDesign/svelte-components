@@ -39,25 +39,29 @@
     ...props
   }: Props = $props()
 
-  let classes = $state('')
+  let classesIn = $state(''),
+    classesOut = $state(`input-${type}`)
   if (inputClass) {
-    classes = inputClass
+    classesIn = inputClass
   }
   if (bgColor && bgColor !== 'none') {
-    classes += ` bg-${bgColor}`
+    classesIn += ` bg-${bgColor}`
   }
   if (borderColor && borderColor !== 'none') {
-    classes += ` border-color-${borderColor}`
+    classesIn += ` border-color-${borderColor}`
+  }
+  if (outerClass) {
+    classesOut += ` ${outerClass}`
   }
 </script>
 
-<label class={outerClass}>
+<label class={classesOut}>
   {label}{#if required}<sup>*</sup>{/if}
 
   {#if type === 'textarea'}
     <textarea
       bind:value
-      class={classes}
+      class={classesIn}
       disabled={disabled || $loading}
       {id}
       maxlength={max ? Number(max) : undefined}
@@ -69,7 +73,7 @@
   {:else if ['date', 'number'].includes(type)}
     <input
       bind:value
-      class={classes}
+      class={classesIn}
       disabled={disabled || $loading}
       lang="fi-FI"
       {max}
@@ -88,7 +92,7 @@
       {placeholder}
       {required}
       {type}
-      class={classes}
+      class={classesIn}
       disabled={disabled || $loading}
       maxlength={max ? Number(max) : undefined}
       minlength={min ? Number(min) : undefined}

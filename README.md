@@ -203,14 +203,15 @@ Allows users to toggle between checked and unchecked states.
 
 ```TypeScript
   interface Props {
+    checked?: boolean
     children: Snippet
-    onchange?: () => void
-    checked: boolean
     disabled?: boolean
     group?: boolean
     id?: string
+    onchange?: () => void
     outerClass?: string
-    value?: string
+    required?: boolean
+    value?: number | string
   }
 ```
 
