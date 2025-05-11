@@ -163,7 +163,7 @@
     height: 20px;
     width: 20px;
   }
-  .loader.white {
+  .loader.black {
     border-top-color: #000;
   }
   .loader.white {

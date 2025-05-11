@@ -15,9 +15,14 @@
   }
 
   let {children, onchange, checked = $bindable(false), disabled, group = $bindable(), id, outerClass, required, value, ...props}: Props = $props()
+
+  let classes = $state('input-checkbox')
+  if (outerClass) {
+    classes += ` ${outerClass}`
+  }
 </script>
 
-<label class={outerClass}>
+<label class={classes}>
   <input bind:checked disabled={disabled || $loading} {id} {onchange} {required} type="checkbox" {value} {...props} />
   <span>
     {@render children?.()}
@@ -30,8 +35,8 @@
     accent-color: var(--color-primary);
     border: 1px solid var(--color-border);
     height: 20px;
+    margin-top: 3px;
     outline: none;
-    vertical-align: middle;
     width: 20px;
   }
 
@@ -46,13 +51,11 @@
   }
 
   label {
-    align-items: center;
     cursor: pointer;
     display: grid;
     font-size: 1rem;
     gap: 1rem;
     grid-template-columns: 20px 1fr;
-    line-height: 1.25;
   }
 
   sup {
