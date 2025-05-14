@@ -1,20 +1,5 @@
 <script lang="ts">
-  import type {ImageData} from '$lib'
-
-  interface Props {
-    ariaHidden?: boolean
-    aspect?: '3:4' | '4:3' | 'square' | 'video'
-    ball?: boolean
-    border?: boolean
-    center?: boolean
-    display?: 'block' | 'inline-block'
-    extraClasses?: string
-    fullWidth?: boolean
-    image: ImageData
-    loading?: 'eager' | 'lazy'
-    objectFit?: 'contain' | 'cover'
-  }
-
+  import type {ImageView} from '$lib/types'
   let {
     ariaHidden,
     aspect,
@@ -27,7 +12,7 @@
     image,
     loading = 'lazy',
     objectFit
-  }: Props = $props()
+  }: ImageView = $props()
 
   let classes = $state(display)
   if (aspect) {

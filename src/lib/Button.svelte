@@ -1,43 +1,6 @@
 <script lang="ts">
   import {loading} from '$lib'
-  import type {Snippet} from 'svelte'
-
-  interface Props {
-    ariaControls?: string | undefined
-    ariaExpanded?: boolean | undefined
-    ariaLabel?: string | undefined
-    ariaPopup?: 'dialog' | 'listbox' | 'menu' | undefined
-    borderColor?: 'content' | 'default' | 'primary'
-    borderSize?: 0 | 1 | 2
-    children: Snippet
-    color?: string
-    colorBg?: string
-    control?: boolean
-    disabled?: boolean
-    extraClass?: string
-    fill?: boolean
-    fontWeight?: 'normal' | 'bold'
-    fullWidth?: boolean
-    hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
-    hoverText?: 'black' | 'primary' | 'secondary' | 'white'
-    href?: string | undefined
-    id?: string
-    noCenter?: boolean
-    noHeight?: boolean
-    noPadding?: boolean
-    noSpinner?: boolean
-    onclick?: any
-    preload?: 'hover' | 'tap'
-    rel?: string
-    role?: string
-    rounded?: 'full' | 'lg' | 'none' | 'sm'
-    spinnerColor?: 'black' | 'white'
-    target?: '_blank' | '_top' | undefined
-    title?: string | undefined
-    type?: 'submit'
-    uppercase?: boolean
-    value?: string | number
-  }
+  import type {ButtonView} from '$lib/types'
 
   let {
     ariaControls,
@@ -74,7 +37,7 @@
     type,
     uppercase = true,
     value
-  }: Props = $props()
+  }: ButtonView = $props()
 
   let classes = $state(`btn text-${color}`)
 
