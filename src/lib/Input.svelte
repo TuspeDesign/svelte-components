@@ -1,24 +1,6 @@
 <script lang="ts">
   import {loading} from '$lib'
-
-  interface Props {
-    onchange?: () => void
-    onclick?: () => void
-    borderColor?: 'content' | 'default' | 'primary' | 'none'
-    bgColor?: 'transparent' | 'white' | 'none'
-    disabled?: boolean
-    id?: string
-    inputClass?: string
-    label: string
-    max?: number | string
-    min?: number | string
-    outerClass?: string
-    placeholder?: string
-    required?: boolean
-    step?: number
-    type?: 'email' | 'date' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'textarea' | 'time' | 'url'
-    value: string | number
-  }
+  import type {InputView} from '$lib/types'
 
   let {
     bgColor = 'transparent',
@@ -37,7 +19,7 @@
     type = 'text',
     value = $bindable(),
     ...props
-  }: Props = $props()
+  }: InputView = $props()
 
   let classesIn = $state(''),
     classesOut = $state(`input-${type}`)
@@ -62,7 +44,7 @@
     <textarea
       bind:value
       class={classesIn}
-      disabled={disabled || $loading}
+      disabled={disabled || $loading ? true : false}
       {id}
       maxlength={max ? Number(max) : undefined}
       {required}
@@ -74,7 +56,7 @@
     <input
       bind:value
       class={classesIn}
-      disabled={disabled || $loading}
+      disabled={disabled || $loading ? true : false}
       lang="fi-FI"
       {max}
       {min}
@@ -93,7 +75,7 @@
       {required}
       {type}
       class={classesIn}
-      disabled={disabled || $loading}
+      disabled={disabled || $loading ? true : false}
       maxlength={max ? Number(max) : undefined}
       minlength={min ? Number(min) : undefined}
       onkeyup={onchange}

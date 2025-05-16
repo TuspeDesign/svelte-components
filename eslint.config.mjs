@@ -1,12 +1,12 @@
-import globals from 'globals'
-import js from '@eslint/js'
+import eslint from '@eslint/js'
 import prettier from 'eslint-config-prettier'
 import svelte from 'eslint-plugin-svelte'
-import ts from 'typescript-eslint'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
-export default ts.config(
-  js.configs.recommended,
-  ...ts.configs.recommended,
+export default tseslint.config(
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
   ...svelte.configs['flat/recommended'],
   prettier,
   ...svelte.configs['flat/prettier'],
@@ -22,16 +22,16 @@ export default ts.config(
     files: ['**/*.svelte'],
     languageOptions: {
       parserOptions: {
-        parser: ts.parser
+        parser: tseslint.parser
       }
     }
   },
   {
-    ignores: ['build/', '.svelte-kit/', 'dist/'],
+    ignores: ['build/', '.svelte-kit/', 'dist/']
+  },
+  {
     rules: {
-      '@typescript-eslint/no-explicit-any': 'none',
-      allowImportingTsExtensions: true,
-      moduleResolution: 'nodenext'
+      '@typescript-eslint/no-explicit-any': 'warning'
     }
   }
 )

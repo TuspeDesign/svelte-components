@@ -1,18 +1,6 @@
 <script lang="ts">
-  import type {Snippet} from 'svelte'
   import ButtonClose from '$lib/ButtonClose.svelte'
-  interface Props {
-    children: Snippet
-    buttonAriaLabel?: string
-    colorButton?: string
-    colorBg?: string
-    headerClass?: string
-    innerClass?: string
-    open?: boolean
-    outerClass?: string
-    title?: string
-    titleClass?: string
-  }
+  import type {ModalView} from '$lib/types'
   let {
     children,
     buttonAriaLabel,
@@ -23,7 +11,7 @@
     outerClass = 'bg-white text-content',
     title,
     titleClass = 'text-white'
-  }: Props = $props()
+  }: ModalView = $props()
   const handleClose = () => {
     open = false
   }

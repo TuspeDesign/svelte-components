@@ -1,18 +1,12 @@
 <script lang="ts">
   import {page} from '$app/state'
   import {onMount} from 'svelte'
-  import {validateArray, type Breadcrumb} from '$lib'
+  import {validateArray} from '$lib'
+  import type {Breadcrumb} from '$lib'
+  import type {BreadcrumbView} from '$lib/types'
 
-  interface Props {
-    homeName?: string
-    homeSlug?: string
-    onlyMeta?: boolean
-    outerClass?: string
-    values: Breadcrumb[]
-  }
-
-  let {homeName = 'Etusivu', homeSlug = '', onlyMeta = false, outerClass, values}: Props = $props(),
-    classes = $state('truncate')
+  let {homeName = 'Etusivu', homeSlug = '', onlyMeta = false, outerClass, values}: BreadcrumbView = $props()
+  let classes = $state('truncate')
 
   const origin = page.url.origin + '/'
 

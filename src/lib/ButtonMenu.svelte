@@ -1,16 +1,7 @@
 <script lang="ts">
   import Button from '$lib/Button.svelte'
-  interface Props {
-    ariaControls: string
-    color?: 'black' | 'white'
-    extraClass?: string
-    hidden?: boolean
-    id?: string
-    onclick?: () => any
-    open: boolean
-    title: string
-  }
-  let {ariaControls, title, color = 'white', extraClass, hidden = false, id, open = $bindable()}: Props = $props()
+  import type {ButtonMenuView} from '$lib/types'
+  let {ariaControls, title, color = 'white', extraClass, hidden = false, id, open = $bindable()}: ButtonMenuView = $props()
   const handleOpen = () => {
     open = !open
   }

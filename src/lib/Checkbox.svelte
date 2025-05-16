@@ -1,21 +1,18 @@
 <script lang="ts">
   import {loading} from '$lib'
-  import type {Snippet} from 'svelte'
-
-  interface Props {
-    children: Snippet
-    onchange?: () => void
-    checked?: boolean
-    disabled?: boolean
-    group?: boolean
-    id?: string
-    outerClass?: string
-    required?: boolean
-    value?: number | string
-  }
-
-  let {children, onchange, checked = $bindable(false), disabled, group = $bindable(), id, outerClass, required, value, ...props}: Props = $props()
-
+  import type {CheckboxView} from '$lib/types'
+  let {
+    children,
+    onchange,
+    checked = $bindable(false),
+    disabled,
+    group = $bindable(),
+    id,
+    outerClass,
+    required,
+    value,
+    ...props
+  }: CheckboxView = $props()
   let classes = $state('input-checkbox')
   if (outerClass) {
     classes += ` ${outerClass}`
@@ -23,7 +20,7 @@
 </script>
 
 <label class={classes}>
-  <input bind:checked disabled={disabled || $loading} {id} {onchange} {required} type="checkbox" {value} {...props} />
+  <input bind:checked disabled={disabled || $loading ? true : false} {id} {onchange} {required} type="checkbox" {value} {...props} />
   <span>
     {@render children?.()}
     {#if required}<sup>*</sup>{/if}

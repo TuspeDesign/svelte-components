@@ -1,13 +1,7 @@
 <script lang="ts">
   import Button from '$lib/Button.svelte'
-  interface Props {
-    ariaLabel: string
-    color?: string
-    direction: 'left' | 'right'
-    id?: string
-    onclick?: () => any
-  }
-  let {onclick, ariaLabel, color = 'black', direction, id}: Props = $props()
+  import type {ButtonArrowView} from '$lib/types'
+  let {onclick, ariaLabel, color = 'black', direction, id}: ButtonArrowView = $props()
 </script>
 
 <Button {ariaLabel} control {color} {id} {onclick}>
