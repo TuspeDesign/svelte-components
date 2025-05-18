@@ -5,7 +5,7 @@
     children,
     onchange,
     checked = $bindable(false),
-    disabled,
+    disabled = $bindable(false),
     group = $bindable(),
     id,
     outerClass,

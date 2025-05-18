@@ -13,7 +13,7 @@
     color = 'white',
     colorBg = 'primary',
     control,
-    disabled,
+    disabled = $bindable(),
     extraClass,
     fill,
     fontWeight = 'bold',

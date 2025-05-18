@@ -36,7 +36,9 @@
     )
 
   onMount(() => {
-    classes += outerClass ? ` ${outerClass}` : ' border-bottom'
+    if (outerClass) {
+      classes += ` ${outerClass}`
+    }
   })
 </script>
 
@@ -63,8 +65,9 @@
 
 <style scoped>
   #breadcrumb {
-    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   #breadcrumb li {
