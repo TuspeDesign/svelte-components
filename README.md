@@ -25,7 +25,7 @@ A breadcrumb navigation provide links back to previous pages, and shows the user
     position?: string
   }
 
-  interface Props {
+  type Props =  {
     homeName?: string
     homeSlug?: string
     onlyMeta?: boolean
@@ -39,7 +39,7 @@ A breadcrumb navigation provide links back to previous pages, and shows the user
 Easily replace most buttons in your project with this versatile button component. The `control` value makes it ideal for icons and as a toggler for the mobile menu.
 
 ```TypeScript
-  interface Props {
+  type Props =  {
     ariaControls?: string | undefined
     ariaExpanded?: boolean | undefined
     ariaLabel?: string | undefined
@@ -82,7 +82,7 @@ Easily replace most buttons in your project with this versatile button component
 Arrow icons for navigation, such as image sliders or content transitions.
 
 ```TypeScript
-  interface Props {
+  type Props =  {
     ariaLabel: string
     color?: string
     direction: 'left' | 'right'
@@ -96,7 +96,7 @@ Arrow icons for navigation, such as image sliders or content transitions.
 Close button for modals and other dismissible elements.
 
 ```TypeScript
-  interface Props {
+  type Props =  {
     ariaLabel?: string
     color?: string
     hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
@@ -111,7 +111,7 @@ Close button for modals and other dismissible elements.
 A button for toggling the mobile menu, dynamically changing its icon based on the menu's open or closed state.
 
 ```TypeScript
-  interface Props {
+  type Props =  {
     ariaControls: string
     color?: 'black' | 'white'
     extraClass?: string
@@ -135,7 +135,7 @@ A versatile image component supporting various aspect ratios and object fit opti
     width?: number
   }
 
-  interface Props {
+  type Props =  {
     ariaHidden?: boolean
     aspect?: '3:4' | '4:3' | 'square' | 'video'
     ball?: boolean
@@ -155,7 +155,7 @@ A versatile image component supporting various aspect ratios and object fit opti
 A flexible `Input` component supporting common input types with basic styling for form fields. It includes optional attributes for labels, placeholders, min/max values, steps, and event handlers but does not perform content validation.
 
 ```TypeScript
-  interface Props {
+  type Props =  {
     onchange?: () => void
     onclick?: () => void
     borderColor?: string
@@ -183,7 +183,7 @@ A customizable `Select` component for choosing from a list of options. Supports 
     value: number | string
   }
 
-  interface Props {
+  type Props =  {
     disabled?: boolean
     id?: string
     innerClass?: string
@@ -202,7 +202,7 @@ A customizable `Select` component for choosing from a list of options. Supports 
 Allows users to toggle between checked and unchecked states.
 
 ```TypeScript
-  interface Props {
+  type Props =  {
     checked?: boolean
     children: Snippet
     disabled?: boolean
@@ -220,7 +220,7 @@ Allows users to toggle between checked and unchecked states.
 A simple `Modal` component that displays a popup with customizable content.
 
 ```TypeScript
-  interface Props {
+  type Props =  {
     children: Snippet
     buttonAriaLabel?: string
     colorButton?: string

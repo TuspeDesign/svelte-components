@@ -1,16 +1,7 @@
 <script lang="ts">
   import Button from '$lib/Button.svelte'
-
-  interface Props {
-    ariaLabel?: string
-    color?: string
-    hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
-    hoverText?: 'black' | 'primary' | 'secondary' | 'white'
-    id?: string
-    onclick?: any
-  }
-
-  let {ariaLabel, color = 'white', hover = 'transparent', id, onclick}: Props = $props()
+  import type {ButtonCloseView} from '$lib/types'
+  let {ariaLabel, color = 'white', hover = 'transparent', id, onclick}: ButtonCloseView = $props()
 </script>
 
 <div class="close-button">
