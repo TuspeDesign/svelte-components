@@ -1,15 +1,23 @@
 <script lang="ts">
-  import {Button, ButtonMenu, Checkbox, Input, loading, Modal} from '$lib'
+  import {Button, ButtonMenu, Checkbox, Select, loading, Modal} from '$lib'
   let menuOpen = $state(false),
     checkStatus = $state(false),
-    disabled = $state(false)
+    disabled = $state(false),
+    selectValue = $state(1)
   const changeStatus = () => {
     disabled = !disabled
     $loading = disabled ? 1 : 0
   }
 </script>
 
-<Input label="Hakusana" type="search" />
+<Select
+  bind:value={selectValue}
+  label="Hakusana"
+  values={[
+    {name: 'Cat', value: 1},
+    {name: 'Dog', value: 2}
+  ]}
+/>
 <Button ariaLabel="Tärkeää tietoa" bind:disabled>Status check</Button>
 <Button ariaLabel="Active / disable" onclick={changeStatus}>Change disabled status</Button>
 <Button control color="light" ariaLabel="Morjens">
@@ -21,7 +29,7 @@
 </Button>
 <Checkbox bind:checked={checkStatus}>Check Option 1</Checkbox>
 
-<ButtonMenu bind:menuOpen ariaLabel="Menu" controls="menu" />
+<ButtonMenu bind:open={menuOpen} ariaControls="menu" title="Open menu" />
 
 <Modal open={menuOpen} title="Modal title">
   <p>
