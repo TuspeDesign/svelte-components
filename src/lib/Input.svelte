@@ -117,6 +117,7 @@
     margin-top: 0.25rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    -webkit-appearance: none;
   }
 
   input,

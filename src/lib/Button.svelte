@@ -105,7 +105,7 @@
     {@render children?.()}
   </button>
 {:else}
-  <button {onclick} class={classes} {disabled} {title} {type}>
+  <button {onclick} class={classes} {disabled} {id} {title} {type}>
     {#if $loading && !noSpinner}
       <span class={`loader ${spinnerColor}`}></span>
     {:else}
