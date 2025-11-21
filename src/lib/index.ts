@@ -38,7 +38,7 @@ export const loading = writable(0)
  * PRICES AND NUMBERS
  */
 
-export const formatPrice = (value: number | string, comma = false, currency = '€'): string => {
+export const formatPrice = (value: number | string | undefined, comma = false, currency = '€'): string => {
   if (!value) {
     return '0.00 ' + currency
   }
@@ -54,7 +54,7 @@ export const formatPrice = (value: number | string, comma = false, currency = '�
   return price
 }
 
-export const fixNumber = (value: number | string): number => {
+export const fixNumber = (value: number | string | undefined): number => {
   if (typeof value === 'string') {
     value = Number(value)
   }
@@ -81,7 +81,7 @@ export const calculateWithTax = (value: number, vatPercentage = defaultVatPercen
  * STRING VALIDATIONS
  */
 
-export const slugify = (value: string): string => {
+export const slugify = (value: string | undefined): string => {
   if (!value) {
     return ''
   }
@@ -95,7 +95,7 @@ export const slugify = (value: string): string => {
     .replace(/^-+|-+$/g, '') // Trim leading and trailing hyphens
 }
 
-export const validateSlug = (value: string): boolean => {
+export const validateSlug = (value: string | undefined): boolean => {
   return value && slugify(value) === value ? true : false
 }
 
