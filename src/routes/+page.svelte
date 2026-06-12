@@ -25,12 +25,7 @@
 <ButtonMenu bind:open={menuOpen} ariaControls="menu" title="Open menu" />
 
 <Modal open={menuOpen} title="Modal title">
-  <p>
-    Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal
-    content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal
-    content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal
-    content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content
-  </p>
+  <p>Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content</p>
 </Modal>
 
 <style>

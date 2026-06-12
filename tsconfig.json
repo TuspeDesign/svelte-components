@@ -6,7 +6,7 @@
     "allowUnreachableCode": false,
     "checkJs": true,
     "esModuleInterop": true,
-    "exactOptionalPropertyTypes": false,
+    "exactOptionalPropertyTypes": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "bundler",
     "noFallthroughCasesInSwitch": true,
@@ -16,8 +16,10 @@
     "noImplicitThis": true,
     "noUncheckedIndexedAccess": true,
     "resolveJsonModule": true,
+    "rewriteRelativeImportExtensions": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true
+    "strict": true,
+    "types": []
   }
 }

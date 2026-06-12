@@ -13,7 +13,8 @@
   "importOrderSeparation": false,
   "importOrderSortSpecifiers": true,
   "plugins": [
-    "prettier-plugin-svelte"
+    "prettier-plugin-svelte",
+    "prettier-plugin-tailwindcss"
   ],
   "overrides": [
     {
@@ -26,12 +27,13 @@
   "pluginSearchDirs": [
     "."
   ],
-  "printWidth": 150,
+  "printWidth": 1000,
   "quoteProps": "as-needed",
   "semi": false,
   "singleAttributePerLine": false,
   "singleQuote": true,
   "tabWidth": 2,
+  "tailwindStylesheet": "./src/routes/layout.css",
   "trailingComma": "none",
   "useTabs": false
 }

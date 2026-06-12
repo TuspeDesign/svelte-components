@@ -1,87 +1,10 @@
 <script lang="ts">
-  import {loading} from '$lib'
+  import {cx, loading} from '$lib'
   import type {ButtonView} from '$lib/types'
 
-  let {
-    ariaControls,
-    ariaExpanded,
-    ariaLabel,
-    ariaPopup,
-    borderColor = 'content',
-    borderSize = 0,
-    children,
-    color = 'white',
-    colorBg = 'primary',
-    control,
-    disabled = $bindable(),
-    extraClass,
-    fill,
-    fontWeight = 'bold',
-    fullWidth,
-    hover = 'secondary',
-    hoverText = 'white',
-    href,
-    id,
-    noCenter = false,
-    noHeight,
-    noPadding,
-    noSpinner,
-    onclick = undefined,
-    preload,
-    rel = 'noopener noreferrer',
-    role,
-    rounded = 'sm',
-    spinnerColor = 'white',
-    target,
-    title,
-    type,
-    uppercase = true,
-    value
-  }: ButtonView = $props()
+  let {ariaControls, ariaExpanded, ariaLabel, ariaPopup, borderColor = 'content', borderSize = 0, children, color = 'white', colorBg = 'primary', control, disabled = $bindable(), extraClass, fill, fontWeight = 'bold', fullWidth, hover = 'secondary', hoverText = 'white', href, id, noCenter = false, noHeight, noPadding, noSpinner, onclick = undefined, preload, rel = 'noopener noreferrer', role, rounded = 'sm', spinnerColor = 'white', target, title, type, uppercase = true, value}: ButtonView = $props()
 
-  let classes = $state(`btn text-${color}`)
-
-  if (control) {
-    classes += ' control'
-  } else {
-    classes += ' bg-' + colorBg
-  }
-  if (borderSize) {
-    classes += ' border-solid border-' + borderSize + ' border-' + borderColor
-  }
-  if (extraClass) {
-    classes += ' ' + extraClass
-  }
-  if (fill) {
-    classes += ' fill'
-  }
-  if (fontWeight) {
-    classes += ' font-' + fontWeight
-  }
-  if (fullWidth) {
-    classes += ' w-full'
-  }
-  if (hover) {
-    classes += ' hover-' + hover
-  }
-  if (hoverText) {
-    classes += ' hover-text-' + hoverText
-  }
-  if (!noCenter) {
-    classes += ' center'
-  }
-  if (noHeight) {
-    classes += ' no-height'
-  }
-  if (noPadding) {
-    classes += ' no-padding'
-  }
-  if (rounded) {
-    classes += ' radius-' + rounded
-  }
-  if (uppercase) {
-    classes += ' uppercase'
-  }
+  let classes = $derived(cx('btn', `text-${color}`, control ? 'control' : `bg-${colorBg}`, borderSize ? `border-solid border-${borderSize} border-${borderColor}` : false, extraClass, fill && 'fill', fontWeight && `font-${fontWeight}`, fullWidth && 'w-full', hover && `hover-${hover}`, hoverText && `hover-text-${hoverText}`, !noCenter && 'center', noHeight && 'no-height', noPadding && 'no-padding', rounded && `radius-${rounded}`, uppercase && 'uppercase'))
 </script>
 
 {#if href}
@@ -89,19 +12,7 @@
     {@render children?.()}
   </a>
 {:else if control}
-  <button
-    {id}
-    {onclick}
-    {role}
-    {title}
-    {value}
-    aria-controls={ariaControls}
-    aria-expanded={ariaExpanded}
-    aria-haspopup={ariaPopup}
-    aria-label={ariaLabel}
-    class={classes}
-    {disabled}
-  >
+  <button {id} {onclick} {role} {title} {value} aria-controls={ariaControls} aria-expanded={ariaExpanded} aria-haspopup={ariaPopup} aria-label={ariaLabel} class={classes} {disabled}>
     {@render children?.()}
   </button>
 {:else}
@@ -153,11 +64,11 @@
   }
   .bg-success:not(:hover),
   .hover-success:hover {
-    background-color: green;
+    background-color: var(--color-success, green);
   }
   .bg-danger:not(:hover),
   .hover-danger:hover {
-    background-color: darkred;
+    background-color: var(--color-danger, darkred);
   }
   .bg-black:not(:hover),
   .hover-black:hover {

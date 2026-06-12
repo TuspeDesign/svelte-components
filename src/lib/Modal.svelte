@@ -1,17 +1,7 @@
 <script lang="ts">
   import ButtonClose from '$lib/ButtonClose.svelte'
   import type {ModalView} from '$lib/types'
-  let {
-    children,
-    buttonAriaLabel,
-    colorButton = 'white',
-    headerClass = 'bg-primary text-white',
-    innerClass,
-    open = $bindable(),
-    outerClass = 'bg-white text-content',
-    title,
-    titleClass = 'text-white'
-  }: ModalView = $props()
+  let {children, buttonAriaLabel, colorButton = 'white', headerClass = 'bg-primary text-white', innerClass, open = $bindable(), outerClass = 'bg-white text-content', title, titleClass = 'text-white'}: ModalView = $props()
   const handleClose = () => {
     open = false
   }
@@ -53,7 +43,7 @@
   #modal-content {
     border-radius: 1rem;
     border: 2px solid var(--color-primary);
-    color: var(--color-content);
+    color: var(--color-content, #222);
     margin-left: auto;
     margin-right: auto;
     max-width: 95vw;
@@ -69,7 +59,7 @@
     padding: 1rem;
   }
   header {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border, #999);
     padding: 1rem;
   }
   h2 {
@@ -85,7 +75,7 @@
     background-color: #fff;
   }
   .text-content {
-    color: var(--color-content);
+    color: var(--color-content, #222);
   }
   .text-white {
     color: #fff;

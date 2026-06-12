@@ -1,16 +1,14 @@
 <script lang="ts">
   import {page} from '$app/state'
-  import {onMount} from 'svelte'
-  import {validateArray} from '$lib'
+  import {cx, validateArray} from '$lib'
   import type {Breadcrumb} from '$lib'
   import type {BreadcrumbView} from '$lib/types'
 
   let {homeName = 'Etusivu', homeSlug = '', onlyMeta = false, outerClass, values}: BreadcrumbView = $props()
-  let classes = $state('truncate')
+  let classes = $derived(cx('truncate', outerClass))
 
-  const origin = page.url.origin + '/'
-
-  let originWithSlug = $state(origin + homeSlug),
+  let origin = $derived(page.url.origin + '/'),
+    originWithSlug = $derived(origin + homeSlug),
     listItems = $derived<Breadcrumb[]>(
       validateArray(values)
         ? [
@@ -34,12 +32,6 @@
         ? `<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":${JSON.stringify(listItems)}}${'<'}/script>`
         : ''
     )
-
-  onMount(() => {
-    if (outerClass) {
-      classes += ` ${outerClass}`
-    }
-  })
 </script>
 
 <svelte:head>

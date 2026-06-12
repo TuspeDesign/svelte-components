@@ -35,6 +35,18 @@ export interface SelectItem {
 export const loading = writable(0)
 
 /**
+ * CLASS NAMES
+ */
+
+export const cx = (...classes: (string | false | null | undefined)[]): string => classes.filter(Boolean).join(' ')
+
+/**
+ * DISABLED STATE
+ */
+
+export const isDisabled = (disabled: boolean | undefined, loadingCount: number): boolean => disabled === true || loadingCount > 0
+
+/**
  * PRICES AND NUMBERS
  */
 
@@ -96,16 +108,16 @@ export const slugify = (value: string | undefined): string => {
 }
 
 export const validateSlug = (value: string | undefined): boolean => {
-  return value && slugify(value) === value ? true : false
+  return !!value && slugify(value) === value
 }
 
 export const validateEmail = (email: string): boolean => {
-  var re = /\S+@\S+\.\S+/
+  const re = /\S+@\S+\.\S+/
   return re.test(email)
 }
 
 export const validateString = (value: string): boolean => {
-  return value && value.replace(/[^\w\s@!.:;,?+äÄöÖåÅ/%&()|-]/gi, '') === value ? true : false
+  return !!value && value.replace(/[^\w\s@!.:;,?+äÄöÖåÅ/%&()|-]/gi, '') === value
 }
 
 /**
@@ -113,7 +125,7 @@ export const validateString = (value: string): boolean => {
  */
 
 export const validateArray = (value: any, items = 0): boolean => {
-  return value && Array.isArray(value) && value.length > items ? true : false
+  return Array.isArray(value) && value.length > items
 }
 
 /**

@@ -19,10 +19,9 @@ export interface ButtonArrowView {
 
 export interface ButtonCloseView {
   onclick?: any
-  ariaLabel?: string
+  ariaLabel?: string | undefined
   color?: string
-  hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
-  hoverText?: 'black' | 'primary' | 'secondary' | 'white'
+  hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent' | undefined
   id?: string
 }
 
@@ -56,7 +55,7 @@ export interface ButtonView {
   hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
   hoverText?: 'black' | 'primary' | 'secondary' | 'white'
   href?: string | undefined
-  id?: string
+  id?: string | undefined
   noCenter?: boolean
   noHeight?: boolean
   noPadding?: boolean
@@ -123,7 +122,6 @@ export interface ModalView {
   children: Snippet
   buttonAriaLabel?: string
   colorButton?: string
-  colorBg?: string
   headerClass?: string
   innerClass?: string
   open?: boolean
