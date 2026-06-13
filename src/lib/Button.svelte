@@ -2,9 +2,62 @@
   import {cx, loading} from '$lib'
   import type {ButtonView} from '$lib/types'
 
-  let {ariaControls, ariaExpanded, ariaLabel, ariaPopup, borderColor = 'content', borderSize = 0, children, color = 'white', colorBg = 'primary', control, disabled = $bindable(), extraClass, fill, fontWeight = 'bold', fullWidth, hover = 'secondary', hoverText = 'white', href, id, noCenter = false, noHeight, noPadding, noSpinner, onclick = undefined, preload, rel = 'noopener noreferrer', role, rounded = 'sm', spinnerColor = 'white', target, title, type, uppercase = true, value}: ButtonView = $props()
+  let {
+    ariaControls,
+    ariaExpanded,
+    ariaLabel,
+    ariaPopup,
+    borderColor = 'content',
+    borderSize = 0,
+    children,
+    color = 'white',
+    colorBg = 'primary',
+    control,
+    disabled = $bindable(),
+    extraClass,
+    fill,
+    fontWeight = 'bold',
+    fullWidth,
+    hover = 'secondary',
+    hoverText = 'white',
+    href,
+    id,
+    noCenter = false,
+    noHeight,
+    noPadding,
+    noSpinner,
+    onclick = undefined,
+    preload,
+    rel = 'noopener noreferrer',
+    role,
+    rounded = 'sm',
+    spinnerColor = 'white',
+    target,
+    title,
+    type,
+    uppercase = true,
+    value
+  }: ButtonView = $props()
 
-  let classes = $derived(cx('btn', `text-${color}`, control ? 'control' : `bg-${colorBg}`, borderSize ? `border-solid border-${borderSize} border-${borderColor}` : false, extraClass, fill && 'fill', fontWeight && `font-${fontWeight}`, fullWidth && 'w-full', hover && `hover-${hover}`, hoverText && `hover-text-${hoverText}`, !noCenter && 'center', noHeight && 'no-height', noPadding && 'no-padding', rounded && `radius-${rounded}`, uppercase && 'uppercase'))
+  let classes = $derived(
+    cx(
+      'btn',
+      `text-${color}`,
+      control ? 'control' : `bg-${colorBg}`,
+      borderSize ? `border-solid border-${borderSize} border-${borderColor}` : false,
+      extraClass,
+      fill && 'fill',
+      fontWeight && `font-${fontWeight}`,
+      fullWidth && 'w-full',
+      hover && `hover-${hover}`,
+      hoverText && `hover-text-${hoverText}`,
+      !noCenter && 'center',
+      noHeight && 'no-height',
+      noPadding && 'no-padding',
+      rounded && `radius-${rounded}`,
+      uppercase && 'uppercase'
+    )
+  )
 </script>
 
 {#if href}
@@ -12,7 +65,19 @@
     {@render children?.()}
   </a>
 {:else if control}
-  <button {id} {onclick} {role} {title} {value} aria-controls={ariaControls} aria-expanded={ariaExpanded} aria-haspopup={ariaPopup} aria-label={ariaLabel} class={classes} {disabled}>
+  <button
+    {id}
+    {onclick}
+    {role}
+    {title}
+    {value}
+    aria-controls={ariaControls}
+    aria-expanded={ariaExpanded}
+    aria-haspopup={ariaPopup}
+    aria-label={ariaLabel}
+    class={classes}
+    {disabled}
+  >
     {@render children?.()}
   </button>
 {:else}
@@ -84,10 +149,10 @@
     border-width: 2px;
   }
   .border-content {
-    border-color: var(--color-content);
+    border-color: var(--color-content, #222);
   }
   .border-default {
-    border-color: var(--color-border);
+    border-color: var(--color-border, #bbb);
   }
   .border-primary {
     border-color: var(--color-primary);
@@ -147,14 +212,17 @@
   .hover-text-black:hover,
   .text-black {
     color: #000;
+    fill: #000;
   }
   .hover-text-primary:hover,
   .text-primary {
     color: var(--color-primary);
+    fill: var(--color-primary);
   }
   .hover-text-content:hover,
   .text-content {
     color: var(--color-content);
+    fill: var(--color-content);
   }
   .hover-black:hover,
   .hover-primary:hover,
@@ -162,10 +230,12 @@
   .hover-text-white:hover,
   .text-white {
     color: #fff;
+    fill: #fff;
   }
   .hover-text-secondary:hover,
   .text-secondary {
     color: var(--color-secondary);
+    fill: var(--color-secondary);
   }
   .radius-full {
     border-radius: 50%;

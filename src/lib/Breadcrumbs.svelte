@@ -4,7 +4,13 @@
   import type {Breadcrumb} from '$lib'
   import type {BreadcrumbView} from '$lib/types'
 
-  let {homeName = 'Etusivu', homeSlug = '', onlyMeta = false, outerClass, values}: BreadcrumbView = $props()
+  let {
+    homeName = 'Etusivu',
+    homeSlug = '',
+    onlyMeta = false,
+    outerClass,
+    values
+  }: BreadcrumbView = $props()
   let classes = $derived(cx('truncate', outerClass))
 
   let origin = $derived(page.url.origin + '/'),
@@ -42,7 +48,12 @@
 
 {#if !onlyMeta && validateArray(listItems)}
   <div class={classes}>
-    <ol id="breadcrumb" class="max-w-screen-xl mx-auto my-0 px-4 py-2" vocab="https://schema.org/" typeof="BreadcrumbList">
+    <ol
+      id="breadcrumb"
+      class="max-w-screen-xl mx-auto my-0 px-4 py-2"
+      vocab="https://schema.org/"
+      typeof="BreadcrumbList"
+    >
       {#each listItems as page}
         <li property="itemListElement" typeof="ListItem">
           <a href={page.item} class="bc-link" property="item" typeof="WebPage">

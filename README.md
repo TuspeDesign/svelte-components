@@ -2,7 +2,7 @@
 
 [Tuspe Design](https://tuspe.com/en) builds websites and online stores for small and large businesses. This component library includes essential elements for forms, modals, breadcrumbs, and images. It also offers utility functions for price display, VAT calculations, and validations for tables and strings.
 
-## Example of required style specifications
+## Example of style specifications
 
 ```CSS
   :root {
@@ -10,6 +10,13 @@
     --color-content: #362e26;
     --color-primary: #20a3cb;
     --color-secondary: #263927;
+    --color-success: green;
+    --color-danger: darkred;
+    --color-input: var(--color-content);
+    --color-input-bg: transparent;
+    --rounded-input: 0.375rem;
+    --text-sm: 0.95rem;
+    --text-label-size: var(--text-sm);
   }
 ```
 
@@ -77,6 +84,16 @@ Easily replace most buttons in your project with this versatile button component
   }
 ```
 
+**CSS variables used:**
+```
+--color-border (default: #bbb),
+--color-content (default: #222),
+--color-danger (default: darkred),
+--color-primary (required),
+--color-secondary (required),
+--color-success (default: green)
+```
+
 ## ButtonArrow
 
 Arrow icons for navigation, such as image sliders or content transitions.
@@ -112,12 +129,15 @@ A button for toggling the mobile menu, dynamically changing its icon based on th
 
 ```TypeScript
   type Props =  {
+    onclick?: () => any
     ariaControls: string
     color?: 'black' | 'white'
+    colorBg?: string
     extraClass?: string
     hidden?: boolean
+    hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
+    hoverText?: 'black' | 'primary' | 'secondary' | 'white'
     id?: string
-    onclick?: () => any
     open: boolean
     title: string
   }
@@ -150,6 +170,11 @@ A versatile image component supporting various aspect ratios and object fit opti
   }
 ```
 
+**CSS variables used:**
+```
+--color-content (default: #222)
+```
+
 ## Input
 
 A flexible `Input` component supporting common input types with basic styling for form fields. It includes optional attributes for labels, placeholders, min/max values, steps, and event handlers but does not perform content validation.
@@ -158,9 +183,11 @@ A flexible `Input` component supporting common input types with basic styling fo
   type Props =  {
     onchange?: () => void
     onclick?: () => void
-    borderColor?: string
+    borderColor?: 'content' | 'default' | 'primary' | 'none'
+    bgColor?: 'transparent' | 'white' | 'none'
     disabled?: boolean
     id?: string
+    inputClass?: string
     label: string
     max?: number | string
     min?: number | string
@@ -171,6 +198,16 @@ A flexible `Input` component supporting common input types with basic styling fo
     type?: 'email' | 'date' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'textarea' | 'time' | 'url'
     value: string | number
   }
+```
+
+**CSS variables used:**
+```
+--color-border (default: #bbb),
+--color-danger (default: darkred),
+--color-input (default: --color-content, #222),
+--color-input-bg (default: transparent),
+--rounded-input (default: 0.375rem),
+--text-label-size (default: --text-sm, 0.95rem)
 ```
 
 ## Select
@@ -184,6 +221,7 @@ A customizable `Select` component for choosing from a list of options. Supports 
   }
 
   type Props =  {
+    colorBg?: string
     disabled?: boolean
     id?: string
     innerClass?: string
@@ -195,6 +233,16 @@ A customizable `Select` component for choosing from a list of options. Supports 
     value: string | number
     values: SelectItem[]
   }
+```
+
+**CSS variables used:**
+```
+--color-border (default: #bbb),
+--color-danger (default: darkred),
+--color-input (default: --color-content, #222),
+--color-input-bg (default: transparent),
+--rounded-input (default: 0.375rem),
+--text-label-size (default: --text-sm, 0.95rem)
 ```
 
 ## Checkbox
@@ -215,6 +263,13 @@ Allows users to toggle between checked and unchecked states.
   }
 ```
 
+**CSS variables used:**
+```
+--color-border (default: #bbb),
+--color-danger (default: darkred),
+--color-primary (default: darkblue)
+```
+
 ## Modal
 
 A simple `Modal` component that displays a popup with customizable content.
@@ -224,7 +279,6 @@ A simple `Modal` component that displays a popup with customizable content.
     children: Snippet
     buttonAriaLabel?: string
     colorButton?: string
-    colorBg?: string
     headerClass?: string
     innerClass?: string
     open?: boolean
@@ -232,6 +286,13 @@ A simple `Modal` component that displays a popup with customizable content.
     title?: string
     titleClass?: string
   }
+```
+
+**CSS variables used:**
+```
+--color-border (default: #bbb),
+--color-content (default: #222),
+--color-primary (required)
 ```
 
 ## Functions

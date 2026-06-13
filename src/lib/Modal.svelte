@@ -1,7 +1,17 @@
 <script lang="ts">
   import ButtonClose from '$lib/ButtonClose.svelte'
   import type {ModalView} from '$lib/types'
-  let {children, buttonAriaLabel, colorButton = 'white', headerClass = 'bg-primary text-white', innerClass, open = $bindable(), outerClass = 'bg-white text-content', title, titleClass = 'text-white'}: ModalView = $props()
+  let {
+    children,
+    buttonAriaLabel,
+    colorButton = 'white',
+    headerClass = 'bg-primary text-white',
+    innerClass,
+    open = $bindable(),
+    outerClass = 'bg-white text-content',
+    title,
+    titleClass = 'text-white'
+  }: ModalView = $props()
   const handleClose = () => {
     open = false
   }
@@ -13,7 +23,12 @@
       {#if title}
         <h2 class={titleClass}>{title}</h2>
       {/if}
-      <ButtonClose ariaLabel={buttonAriaLabel} onclick={handleClose} color={colorButton} hover="transparent" />
+      <ButtonClose
+        ariaLabel={buttonAriaLabel}
+        onclick={handleClose}
+        color={colorButton}
+        hover="transparent"
+      />
     </header>
     <div id="modal-body" class={innerClass}>
       {@render children?.()}
@@ -42,7 +57,7 @@
   }
   #modal-content {
     border-radius: 1rem;
-    border: 2px solid var(--color-primary);
+    border: 2px solid var(--color-primary, var(--color-border, #bbb));
     color: var(--color-content, #222);
     margin-left: auto;
     margin-right: auto;
@@ -59,7 +74,7 @@
     padding: 1rem;
   }
   header {
-    border-bottom: 1px solid var(--color-border, #999);
+    border-bottom: 1px solid var(--color-border, #bbb);
     padding: 1rem;
   }
   h2 {

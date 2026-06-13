@@ -1,16 +1,39 @@
 <script lang="ts">
   import Button from '$lib/Button.svelte'
   import type {ButtonMenuView} from '$lib/types'
-  let {ariaControls, title, color = 'white', extraClass, hidden = false, id, open = $bindable()}: ButtonMenuView = $props()
+  let {
+    ariaControls,
+    title,
+    color = 'white',
+    colorBg = 'transparent',
+    hover = 'black',
+    hoverText = 'white',
+    extraClass,
+    hidden = false,
+    id,
+    open = $bindable()
+  }: ButtonMenuView = $props()
   const handleOpen = () => {
     open = !open
   }
 </script>
 
 <div id="menu-button" class={extraClass} class:hidden>
-  <Button onclick={handleOpen} {ariaControls} ariaPopup="menu" ariaExpanded={open} {title} {color} control fill {id}>
+  <Button
+    onclick={handleOpen}
+    {ariaControls}
+    {color}
+    {colorBg}
+    {hover}
+    {hoverText}
+    {id}
+    {title}
+    ariaExpanded={open}
+    ariaPopup="menu"
+    control
+    fill
+  >
     <svg
-      fill={color}
       clip-rule="evenodd"
       fill-rule="evenodd"
       stroke-linejoin="round"
@@ -39,5 +62,9 @@
   #menu-button {
     height: 48px;
     width: 48px;
+  }
+
+  svg {
+    fill: inherit;
   }
 </style>

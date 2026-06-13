@@ -19,18 +19,46 @@
   ]}
 />
 <Button ariaLabel="Tärkeää tietoa" bind:disabled hover="black">Status check</Button>
-<Button ariaLabel="Active / disable" onclick={changeStatus} hover="black">Change disabled status</Button>
-<Checkbox bind:checked={checkStatus} onchange={() => (menuOpen = !menuOpen)}>Check Option 1</Checkbox>
+<Button ariaLabel="Active / disable" onclick={changeStatus} hover="black">
+  Change disabled status
+</Button>
+<Checkbox bind:checked={checkStatus} onchange={() => (menuOpen = !menuOpen)}>
+  Check Option 1
+</Checkbox>
 
-<ButtonMenu bind:open={menuOpen} ariaControls="menu" title="Open menu" />
+<ButtonMenu
+  bind:open={menuOpen}
+  ariaControls="menu"
+  color="black"
+  hover="black"
+  hoverText="white"
+  title="Open menu"
+/>
 
 <Modal open={menuOpen} title="Modal title">
-  <p>Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content Modal content</p>
+  <p>
+    Modal content Modal content Modal content Modal content Modal content Modal content Modal
+    content Modal content Modal content Modal content Modal content Modal content Modal content
+    Modal content Modal content Modal content Modal content Modal content Modal content Modal
+    content Modal content Modal content Modal content Modal content Modal content Modal content
+    Modal content Modal content Modal content Modal content Modal content Modal content Modal
+    content Modal content Modal content Modal content Modal content Modal content Modal content
+    Modal content
+  </p>
 </Modal>
 
 <style>
   :root {
-    --color-primary: darkblue;
-    --color-border: #999;
+    --color-border: #bbb;
+    --color-content: #362e26;
+    --color-primary: #20a3cb;
+    --color-secondary: #263927;
+    --color-success: green;
+    --color-danger: darkred;
+    --color-input: var(--color-content);
+    --color-input-bg: transparent;
+    --rounded-input: 0.375rem;
+    --text-sm: 0.95rem;
+    --text-label-size: var(--text-sm);
   }
 </style>

@@ -29,8 +29,11 @@ export interface ButtonMenuView {
   onclick?: () => any
   ariaControls: string
   color?: 'black' | 'white'
+  colorBg?: string
   extraClass?: string
   hidden?: boolean
+  hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
+  hoverText?: 'black' | 'primary' | 'secondary' | 'white'
   id?: string
   open: boolean
   title: string

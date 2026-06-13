@@ -1,12 +1,32 @@
 <script lang="ts">
   import {cx, isDisabled, loading} from '$lib'
   import type {CheckboxView} from '$lib/types'
-  let {children, onchange, checked = $bindable(false), disabled = $bindable(false), group = $bindable(), id, outerClass, required, value, ...props}: CheckboxView = $props()
+  let {
+    children,
+    onchange,
+    checked = $bindable(false),
+    disabled = $bindable(false),
+    group = $bindable(),
+    id,
+    outerClass,
+    required,
+    value,
+    ...props
+  }: CheckboxView = $props()
   let classes = $derived(cx('input-checkbox', outerClass))
 </script>
 
 <label class={classes}>
-  <input bind:checked disabled={isDisabled(disabled, $loading)} {id} {onchange} {required} type="checkbox" {value} {...props} />
+  <input
+    bind:checked
+    disabled={isDisabled(disabled, $loading)}
+    {id}
+    {onchange}
+    {required}
+    type="checkbox"
+    {value}
+    {...props}
+  />
   <span>
     {@render children?.()}
     {#if required}<sup>*</sup>{/if}
@@ -15,8 +35,8 @@
 
 <style scoped>
   input {
-    accent-color: var(--color-primary);
-    border: 1px solid var(--color-border, #999);
+    accent-color: var(--color-primary, darkblue);
+    border: 1px solid var(--color-border, #bbb);
     height: 20px;
     margin-top: 3px;
     outline: none;

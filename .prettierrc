@@ -27,7 +27,7 @@
   "pluginSearchDirs": [
     "."
   ],
-  "printWidth": 1000,
+  "printWidth": 100,
   "quoteProps": "as-needed",
   "semi": false,
   "singleAttributePerLine": false,
