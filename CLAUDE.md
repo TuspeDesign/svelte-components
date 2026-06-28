@@ -1,0 +1,11 @@
+- Only do what is asked for. Do not browse whole project and files.
+- Code must be clean, simple, effective, fast and readable. All if/else must have {}.
+- camelCase for code, snake_case for database tables and fields.
+- Use simple function names and variable names. Avoid long names.
+- Check utils files and functions in the same file before creating new functions. If you find a function or variable that can be reused, use it instead of creating a new one.
+- No database calls if you already have tables and schemas available.
+- If you notice errors, do not blame someone else but fix them.
+- Use schemas for types if available. Do not repeat same types when schema already exists.
+- Use real types or type KeyValue.
+- Do not add new KV values (CACHE) without permission.
+- If something is not working, do not use same command again but report it to the team.

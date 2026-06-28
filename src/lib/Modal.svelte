@@ -19,7 +19,7 @@
 
 <div id="modal" class:hidden={!open}>
   <div id="modal-content" class={outerClass} aria-live="polite">
-    <header class={headerClass}>
+    <header class={title ? headerClass : 'no-title'}>
       {#if title}
         <h2 class={titleClass}>{title}</h2>
       {/if}
@@ -28,6 +28,7 @@
         onclick={handleClose}
         color={colorButton}
         hover="transparent"
+        useBgColor={!title}
       />
     </header>
     <div id="modal-body" class={innerClass}>
@@ -76,6 +77,11 @@
   header {
     border-bottom: 1px solid var(--color-border, #bbb);
     padding: 1rem;
+  }
+  header.no-title {
+    background: transparent;
+    border-bottom: none;
+    padding: 0;
   }
   h2 {
     font-size: clamp(1.2rem, 1.6rem, 6vw);

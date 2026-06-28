@@ -32,7 +32,7 @@ A breadcrumb navigation provide links back to previous pages, and shows the user
     position?: string
   }
 
-  type Props =  {
+  type Props = {
     homeName?: string
     homeSlug?: string
     onlyMeta?: boolean
@@ -46,7 +46,7 @@ A breadcrumb navigation provide links back to previous pages, and shows the user
 Easily replace most buttons in your project with this versatile button component. The `control` value makes it ideal for icons and as a toggler for the mobile menu.
 
 ```TypeScript
-  type Props =  {
+  type Props = {
     ariaControls?: string | undefined
     ariaExpanded?: boolean | undefined
     ariaLabel?: string | undefined
@@ -99,13 +99,14 @@ Easily replace most buttons in your project with this versatile button component
 Arrow icons for navigation, such as image sliders or content transitions.
 
 ```TypeScript
-  type Props =  {
-    ariaLabel: string
-    color?: string
-    direction: 'left' | 'right'
-    id?: string
-    onclick?: () => any
-  }
+type ButtonArrowView = {
+  onclick?: () => any
+  ariaLabel: string
+  color?: string
+  colorText?: 'black' | 'primary' | 'secondary' | 'white'
+  direction: 'left' | 'right'
+  id?: string
+}
 ```
 
 ## ButtonClose
@@ -113,13 +114,14 @@ Arrow icons for navigation, such as image sliders or content transitions.
 Close button for modals and other dismissible elements.
 
 ```TypeScript
-  type Props =  {
+  type Props = {
     ariaLabel?: string
     color?: string
     hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
     hoverText?: 'black' | 'primary' | 'secondary' | 'white'
     id?: string
     onclick?: any
+    useBgColor?: boolean
   }
 ```
 
@@ -128,7 +130,7 @@ Close button for modals and other dismissible elements.
 A button for toggling the mobile menu, dynamically changing its icon based on the menu's open or closed state.
 
 ```TypeScript
-  type Props =  {
+  type Props = {
     onclick?: () => any
     ariaControls: string
     color?: 'black' | 'white'
@@ -155,7 +157,7 @@ A versatile image component supporting various aspect ratios and object fit opti
     width?: number
   }
 
-  type Props =  {
+  type Props = {
     ariaHidden?: boolean
     aspect?: '3:4' | '4:3' | 'square' | 'video'
     ball?: boolean
@@ -180,7 +182,7 @@ A versatile image component supporting various aspect ratios and object fit opti
 A flexible `Input` component supporting common input types with basic styling for form fields. It includes optional attributes for labels, placeholders, min/max values, steps, and event handlers but does not perform content validation.
 
 ```TypeScript
-  type Props =  {
+  type Props = {
     onchange?: () => void
     onclick?: () => void
     borderColor?: 'content' | 'default' | 'primary' | 'none'
@@ -220,7 +222,7 @@ A customizable `Select` component for choosing from a list of options. Supports 
     value: number | string
   }
 
-  type Props =  {
+  type Props = {
     colorBg?: string
     disabled?: boolean
     id?: string
@@ -250,7 +252,7 @@ A customizable `Select` component for choosing from a list of options. Supports 
 Allows users to toggle between checked and unchecked states.
 
 ```TypeScript
-  type Props =  {
+  type Props = {
     checked?: boolean
     children: Snippet
     disabled?: boolean
@@ -272,10 +274,10 @@ Allows users to toggle between checked and unchecked states.
 
 ## Modal
 
-A simple `Modal` component that displays a popup with customizable content.
+A simple `Modal` component that displays a popup with customizable content. When no `title` is provided (e.g. an image-only gallery modal), the header chrome is hidden and the close button gets a primary-colored circular background instead, so it stays visible over the content.
 
 ```TypeScript
-  type Props =  {
+  type Props = {
     children: Snippet
     buttonAriaLabel?: string
     colorButton?: string

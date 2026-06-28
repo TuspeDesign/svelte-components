@@ -1,10 +1,17 @@
 <script lang="ts">
   import Button from '$lib/Button.svelte'
   import type {ButtonCloseView} from '$lib/types'
-  let {ariaLabel, color = 'white', hover = 'transparent', id, onclick}: ButtonCloseView = $props()
+  let {
+    ariaLabel,
+    color = 'white',
+    hover = 'transparent',
+    id,
+    onclick,
+    useBgColor
+  }: ButtonCloseView = $props()
 </script>
 
-<div class="close-button">
+<div class:bg-primary={useBgColor} class="close-button">
   <Button {ariaLabel} {color} {onclick} control fill {hover} {id}>
     <svg
       aria-hidden="true"
@@ -29,5 +36,11 @@
     right: 0;
     top: 0;
     width: 48px;
+  }
+  .close-button.bg-primary {
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    right: 0.5rem;
+    top: 0.5rem;
   }
 </style>

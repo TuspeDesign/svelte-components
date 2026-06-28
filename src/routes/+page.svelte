@@ -3,6 +3,7 @@
   let menuOpen = $state(false),
     checkStatus = $state(false),
     disabled = $state(false),
+    galleryOpen = $state(false),
     selectValue = $state(1)
   const changeStatus = () => {
     disabled = !disabled
@@ -35,7 +36,7 @@
   title="Open menu"
 />
 
-<Modal open={menuOpen} title="Modal title">
+<Modal open={menuOpen} title="My beautiful title">
   <p>
     Modal content Modal content Modal content Modal content Modal content Modal content Modal
     content Modal content Modal content Modal content Modal content Modal content Modal content
@@ -45,6 +46,14 @@
     content Modal content Modal content Modal content Modal content Modal content Modal content
     Modal content
   </p>
+</Modal>
+
+<Button ariaLabel="Open gallery" onclick={() => (galleryOpen = true)} hover="black">
+  Open gallery
+</Button>
+
+<Modal bind:open={galleryOpen} buttonAriaLabel="Close gallery">
+  <img alt="" src="/favicon.png" />
 </Modal>
 
 <style>

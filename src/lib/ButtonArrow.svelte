@@ -1,10 +1,17 @@
 <script lang="ts">
   import Button from '$lib/Button.svelte'
   import type {ButtonArrowView} from '$lib/types'
-  let {onclick, ariaLabel, color = 'black', direction, id}: ButtonArrowView = $props()
+  let {
+    onclick,
+    ariaLabel,
+    color = 'black',
+    colorText = 'black',
+    direction,
+    id
+  }: ButtonArrowView = $props()
 </script>
 
-<Button {ariaLabel} control {color} {id} {onclick}>
+<Button {ariaLabel} control {color} {id} {onclick} hover="transparent" hoverText={colorText}>
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
     <title>Arrow {direction}</title>
     {#if direction === 'left'}

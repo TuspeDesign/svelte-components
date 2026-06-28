@@ -13,6 +13,7 @@ export interface ButtonArrowView {
   onclick?: () => any
   ariaLabel: string
   color?: string
+  colorText?: 'black' | 'primary' | 'secondary' | 'white'
   direction: 'left' | 'right'
   id?: string
 }
@@ -23,6 +24,7 @@ export interface ButtonCloseView {
   color?: string
   hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent' | undefined
   id?: string
+  useBgColor?: boolean
 }
 
 export interface ButtonMenuView {
