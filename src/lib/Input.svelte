@@ -37,8 +37,7 @@
       {required}
       {placeholder}
       rows={4}
-      {...props}
-    ></textarea>
+      {...props}></textarea>
   {:else if ['date', 'number'].includes(type)}
     <input
       bind:value

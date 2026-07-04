@@ -191,13 +191,13 @@ A flexible `Input` component supporting common input types with basic styling fo
     id?: string
     inputClass?: string
     label: string
-    max?: number | string
-    min?: number | string
+    max?: number | string | undefined
+    min?: number | string | undefined
     outerClass?: string
     placeholder?: string
-    required?: boolean
-    step?: number
-    type?: 'email' | 'date' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'textarea' | 'time' | 'url'
+    required?: boolean | undefined
+    step?: number | undefined
+    type?: 'email' | 'date' | 'datetime-local' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'textarea' | 'time' | 'url'
     value: string | number
   }
 ```
