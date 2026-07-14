@@ -48,12 +48,7 @@
 
 {#if !onlyMeta && validateArray(listItems)}
   <div class={classes}>
-    <ol
-      id="breadcrumb"
-      class="max-w-screen-xl mx-auto my-0 px-4 py-2"
-      vocab="https://schema.org/"
-      typeof="BreadcrumbList"
-    >
+    <ol id="breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
       {#each listItems as page}
         <li property="itemListElement" typeof="ListItem">
           <a href={page.item} class="bc-link" property="item" typeof="WebPage">
@@ -68,7 +63,9 @@
 
 <style scoped>
   #breadcrumb {
+    margin: 0;
     overflow: hidden;
+    padding: 0;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
