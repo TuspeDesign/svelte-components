@@ -51,7 +51,7 @@ Easily replace most buttons in your project with this versatile button component
     ariaExpanded?: boolean | undefined
     ariaLabel?: string | undefined
     ariaPopup?: 'dialog' | 'listbox' | 'menu' | undefined
-    borderColor?: 'content' | 'default' | 'primary'
+    borderColor?: 'content' | 'default' | 'primary' | 'white' | 'black'
     borderSize?: 0 | 1 | 2
     children: Snippet
     color?: string
