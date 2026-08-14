@@ -22,6 +22,7 @@ export interface ButtonCloseView {
   onclick?: any
   ariaLabel?: string | undefined
   color?: string
+  extraClass?: string
   hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent' | undefined
   id?: string
   useBgColor?: boolean

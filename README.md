@@ -117,6 +117,7 @@ Close button for modals and other dismissible elements.
   type Props = {
     ariaLabel?: string
     color?: string
+    extraClass?: string
     hover?: 'black' | 'primary' | 'secondary' | 'success' | 'transparent'
     hoverText?: 'black' | 'primary' | 'secondary' | 'white'
     id?: string

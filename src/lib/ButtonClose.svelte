@@ -4,6 +4,7 @@
   let {
     ariaLabel,
     color = 'white',
+    extraClass = '',
     hover = 'transparent',
     id,
     onclick,
@@ -12,7 +13,7 @@
 </script>
 
 <div class:bg-primary={useBgColor} class="close-button">
-  <Button {ariaLabel} {color} {onclick} control fill {hover} {id}>
+  <Button {ariaLabel} {color} {extraClass} {onclick} control fill {hover} {id}>
     <svg
       aria-hidden="true"
       fill={color}
