@@ -133,31 +133,30 @@ export const validateArray = (value: any, items = 0): boolean => {
  */
 
 interface Stored {
-  date: number
+  expires: number
   value: any
 }
 
 export const cacheValues = writable<{[key: string]: Stored}>({})
 
-export const handleCache = (key: string, value: any = undefined, ttl: number = 60) => {
+export const handleCache = (key: string, value: any = undefined, ttl: number = 3600) => {
   if (!key) {
     return null
   }
 
   const cache = get(cacheValues),
     newKey = slugify(key),
-    now = Date.now(),
-    ttlMs = ttl * 1000
+    now = Date.now()
 
   if (value !== undefined) {
     const newValues = {
       ...cache,
-      [newKey]: {date: now, value}
+      [newKey]: {expires: now + ttl * 1000, value}
     }
     cacheValues.set(newValues)
   } else if (cache?.[newKey]) {
     const cachedItem = cache[newKey]
-    if (now - cachedItem.date < ttlMs) {
+    if (now < cachedItem.expires) {
       return cachedItem.value
     } else {
       // Remove expired cache entry
