@@ -1,8 +1,7 @@
 <script lang="ts">
   import {page} from '$app/state'
-  import {cx, validateArray} from '$lib'
-  import type {Breadcrumb} from '$lib'
-  import type {BreadcrumbView} from '$lib/types'
+  import {cx, validateArray, type Breadcrumb} from './index'
+  import type {BreadcrumbView} from './types'
 
   let {
     homeName = 'Etusivu',

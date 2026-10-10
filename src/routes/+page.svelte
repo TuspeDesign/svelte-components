@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Button, ButtonMenu, Checkbox, Select, loading, Modal} from '$lib'
+  import {Button, ButtonMenu, Checkbox, Select, loading, Modal} from '../lib/index'
   let menuOpen = $state(false),
     checkStatus = $state(false),
     disabled = $state(false),

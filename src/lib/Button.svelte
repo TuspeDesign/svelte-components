@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {cx, loading} from '$lib'
-  import type {ButtonView} from '$lib/types'
+  import {cx, loading} from './index'
+  import type {ButtonView} from './types'
 
   let {
     ariaControls,

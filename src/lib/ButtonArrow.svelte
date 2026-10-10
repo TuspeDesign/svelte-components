@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Button from '$lib/Button.svelte'
-  import type {ButtonArrowView} from '$lib/types'
+  import Button from './Button.svelte'
+  import type {ButtonArrowView} from './types'
   let {
     onclick,
     ariaLabel,

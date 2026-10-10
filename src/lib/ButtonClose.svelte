@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Button from '$lib/Button.svelte'
-  import type {ButtonCloseView} from '$lib/types'
+  import Button from './Button.svelte'
+  import type {ButtonCloseView} from './types'
   let {
     ariaLabel,
     color = 'white',

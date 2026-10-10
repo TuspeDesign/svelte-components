@@ -1,6 +1,6 @@
 <script lang="ts">
-  import ButtonClose from '$lib/ButtonClose.svelte'
-  import type {ModalView} from '$lib/types'
+  import ButtonClose from './ButtonClose.svelte'
+  import type {ModalView} from './types'
   let {
     children,
     buttonAriaLabel,

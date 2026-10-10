@@ -1,5 +1,5 @@
 import type {Snippet} from 'svelte'
-import type {Breadcrumb, ImageData, SelectItem} from '$lib'
+import type {Breadcrumb, ImageData, SelectItem} from './index'
 
 export interface BreadcrumbView {
   homeName?: string

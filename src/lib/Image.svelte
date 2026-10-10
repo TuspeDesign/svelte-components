@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {cx} from '$lib'
-  import type {ImageView} from '$lib/types'
+  import {cx} from './index'
+  import type {ImageView} from './types'
   let {
     ariaHidden,
     aspect,

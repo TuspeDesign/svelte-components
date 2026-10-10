@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {cx, isDisabled, loading} from '$lib'
-  import type {CheckboxView} from '$lib/types'
+  import {cx, isDisabled, loading} from './index'
+  import type {CheckboxView} from './types'
   let {
     children,
     onchange,

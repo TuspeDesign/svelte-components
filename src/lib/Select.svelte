@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {cx, isDisabled, loading} from '$lib'
-  import type {SelectView} from '$lib/types'
+  import {cx, isDisabled, loading} from './index'
+  import type {SelectView} from './types'
   let {
     disabled,
     id,
